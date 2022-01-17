@@ -1,4 +1,4 @@
-import type { LocaleSettings } from './type';
+import type { LocaleSettings } from 'types/settings';
 
 /**
  * 本地化的默认设置

@@ -1,5 +1,5 @@
 import type { Locale } from '@/locales/type';
-import type { LocaleSettings } from '@/settings/type';
+import type { LocaleSettings } from 'types/settings';
 
 import { defineStore } from 'pinia';
 import { store } from '@/store';

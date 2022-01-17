@@ -1,16 +1,10 @@
-import { ProjectSettings } from './type';
+import { ProjectSettings } from 'types/settings';
 
 const settings: ProjectSettings = {
-  /** 跳转页面时是否移除所有提示消息 */
+  applicationTitle: 'Logo',
   closeMessageOnSwitch: true,
-
-  /** 权限存储策略: local(LocalStorage) 或 session(SessionStorage) */
   permissionCacheStrategy: 'local',
-
-  /** 跳转页面时是否移除所有Pending的请求. */
   removeAllHttpPending: true,
-
-  /** 路由Hash模式 */
   routerMode: 'hash',
 };
 
