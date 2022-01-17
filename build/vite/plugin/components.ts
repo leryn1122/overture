@@ -1,6 +1,6 @@
 import type { Plugin } from 'vite';
 import Components from 'unplugin-vue-components/vite';
-import ViteComponents, { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+import { AntDesignVueResolver, TDesignResolver } from 'unplugin-vue-components/resolvers';
 
 export default function configViteComponents(): Plugin | Plugin[] {
   return Components({
@@ -10,6 +10,9 @@ export default function configViteComponents(): Plugin | Plugin[] {
     globalNamespaces: ['global'],
     importPathTransform: (path) => (path.endsWith('.svg') ? `${path}?component` : undefined),
     include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-    resolvers: [AntDesignVueResolver()],
+    resolvers: [
+      AntDesignVueResolver(),
+      TDesignResolver(),
+    ],
   }) as Plugin;
 }

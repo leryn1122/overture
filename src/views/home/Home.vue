@@ -128,7 +128,6 @@ export default defineComponent({
       return result;
     }
 
-    console.log(toArray(content.menu));
     return {
       content,
       selected,

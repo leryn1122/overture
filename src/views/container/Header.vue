@@ -36,7 +36,6 @@ export default defineComponent({
      * 跳转到subcatalog
      */
     function forwardSubCatalog(index: number): void {
-      console.log('Forward to sub catalog', props.menu[index]);
     }
 
     return {

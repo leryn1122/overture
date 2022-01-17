@@ -30,7 +30,7 @@ async function run() {
 
   app.mount('#app');
 
-  printBanner();
+  // printBanner();
 }
 
 run();
