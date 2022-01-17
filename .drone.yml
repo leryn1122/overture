@@ -1,0 +1,53 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: build-on-commit-nightly
+    image: docker.leryn.top/plugins/docker
+    settings:
+      registry: docker.leryn.top
+      repo: docker.leryn.top/leryn/overture-vue
+      cache_from: docker.leryn.top/leryn/overture-vue
+      tags: nightly
+    volumes:
+      - name: docker-socket
+        path: /var/run/docker.sock
+    when:
+      branch:
+        exclude: [master, feature/*, stable]
+      event:
+        include: [cron, push, pull_request]
+  - name: build-on-commit-latest
+    image: docker.leryn.top/plugins/docker
+    settings:
+      registry: docker.leryn.top
+      repo: docker.leryn.top/leryn/overture-vue
+      cache_from: docker.leryn.top/leryn/overture-vue
+      tags: latest
+    volumes:
+      - name: docker-socket
+        path: /var/run/docker.sock
+    when:
+      branch:
+        include: [master, feature/*, stable]
+      event:
+        include: [push, pull_request]
+  - name: build-on-tag
+    image: docker.leryn.top/plugins/docker
+    settings:
+      registry: docker.leryn.top
+      repo: docker.leryn.top/leryn/overture-vue
+      cache_from: docker.leryn.top/leryn/overture-vue
+      tags: stable
+    volumes:
+      - name: docker-socket
+        path: /var/run/docker.sock
+    when:
+      event:
+        include: tag
+        exclude: [cron, push, pull_request]
+volumes:
+  - name: docker-socket
+    host:
+      path: /var/run/docker.sock
