@@ -35,8 +35,7 @@ export default defineComponent({
     /**
      * 跳转到subcatalog
      */
-    function forwardSubCatalog(index: number): void {
-    }
+    function forwardSubCatalog(index: number): void {}
 
     return {
       fetchCatalog,

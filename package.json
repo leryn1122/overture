@@ -8,16 +8,17 @@
   },
   "scripts": {
     "bootstrap": "pnpm install",
-    "clean": "npm run clean:dist && npm run clean:lib",
+    "clean": "pnpm run clean:dist && pnpm run clean:lib",
     "clean:dist": "rimraf dist",
     "clean:lib": "rimraf node_modules",
-    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && npm run clean && npm run bootstrap",
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && pnpm run clean && pnpm run bootstrap",
     "dev": "cross-env NODE_ENV=development vite",
-    "report": "cross-env REPORT=true npm run build",
+    "report": "cross-env REPORT=true pnpm run build",
     "build": "cross-env NODE_ENV=production vue-tsc --noEmit && vite build && esno ./build/postBuild.ts",
-    "preview": "vite preview",
+    "preview": "pnpm run build && vite preview",
+    "preview:dist": "vite preview",
     "serve": "vite preview",
-    "format": "prettier --config .prettierrc.js --write {src,build,mock,test}/**/*.{ts,js,scss,vue} --write vite.config.ts",
+    "format": "prettier --config .prettierrc.js --write {src,build,mock,test}/**/*.{ts,js,scss,less,html,vue} --write vite.config.ts",
     "docker:local": "cross-env NODE_ENV=development bash ./build/docker/docker-build-local.sh",
     "docker:remote": "cross-env NODE_ENV=production tar --exclude=app.tar.gz --exclude=dist/* --exclude=node_modules/* --exclude=*.local -zcf app.tar.gz . && esno ./build/docker/docker-build-remote.ts",
     "docker:deploy": "bash ./build/docker/docker-deploy.sh"
@@ -88,8 +89,6 @@
     "vite-plugin-compression": "^0.3.6",
     "vite-plugin-html": "^2.1.1",
     "vite-plugin-mock": "^2.9.6",
-    "vite-plugin-optimize-persist": "^0.1.2",
-    "vite-plugin-package-config": "^0.1.1",
     "vite-plugin-style-import": "^1.4.0",
     "vite-plugin-theme": "^0.8.1",
     "vite-plugin-vue-setup-extend": "^0.1.0",
@@ -99,11 +98,5 @@
   "exclude": [
     "node_modules",
     "dist"
-  ],
-  "vite": {
-    "optimizeDeps": {
-      "include": [
-      ]
-    }
-  }
+  ]
 }

@@ -1,6 +1,6 @@
-
-
 import {RouteLocationNormalizedLoaded, Router} from 'vue-router';
+import type { Observable } from 'rxjs';
+
 
 /** 将第三方变量挂载到每一个 vue 示例中  */
 declare module '@vue/runtime-core' {
@@ -10,7 +10,7 @@ declare module '@vue/runtime-core' {
   }
 }
 
-declare module '*.tsx'
+declare module '*.tsx';
 
 declare global {
 }
@@ -34,4 +34,16 @@ declare type Recordable<T = any> = Record<string, T>;
 
 declare type Named = {
   name: string;
+}
+
+declare interface Fn<T = any, R = T> {
+  (...arg: T[]): R;
+}
+
+declare interface PromiseFn<T = any, R = T> {
+  (...arg: T[]): Promise<R>;
+}
+
+declare interface ObservableFn<T = any, R = T> {
+  (...arg: T[]): Observable<R>;
 }

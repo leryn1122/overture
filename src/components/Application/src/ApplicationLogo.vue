@@ -26,10 +26,9 @@ export default defineComponent({
     alwaysShowTitle: {
       type: Boolean,
       default: true,
-    }
+    },
   },
   setup(props) {
-
     const title = projectSettings.applicationTitle;
 
     return {

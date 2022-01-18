@@ -2,8 +2,10 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
+    "modeResolution": "node",
     "strict": true,
     "declaration": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
@@ -12,7 +14,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
@@ -21,9 +23,9 @@
       ]
     },
     "lib": [
-      "esnext",
       "dom",
       "dom.iterable",
+      "esnext",
       "scripthost"
     ]
   },
@@ -31,10 +33,12 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "types/*.d.ts"
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "**/*.js",
   ]
 }

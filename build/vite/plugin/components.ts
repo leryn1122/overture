@@ -10,9 +10,6 @@ export default function configViteComponents(): Plugin | Plugin[] {
     globalNamespaces: ['global'],
     importPathTransform: (path) => (path.endsWith('.svg') ? `${path}?component` : undefined),
     include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-    resolvers: [
-      AntDesignVueResolver(),
-      TDesignResolver(),
-    ],
+    resolvers: [AntDesignVueResolver(), TDesignResolver()],
   }) as Plugin;
 }

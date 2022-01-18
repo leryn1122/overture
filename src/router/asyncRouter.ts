@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-import type { AppRouteRecordRaw } from './type';
+import type { AppRouteRecordRaw } from 'types/router';
 
 /**
  * 异步按需加载路由
