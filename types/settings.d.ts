@@ -1,5 +1,13 @@
 import { Locale } from '@/locales/type';
 
+export interface ComponentSettings {
+
+}
+
+export interface DesignSettings {
+
+}
+
 export interface EncryptionSettings {
   /** 是否使用AES算法加密 */
   useAES: boolean;
@@ -40,4 +48,8 @@ export interface ProjectSettings {
 
   /** 路由Hash模式 */
   routerMode: 'history' | 'hash';
+}
+
+export interface SiteSettings {
+
 }

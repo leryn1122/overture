@@ -1,4 +1,4 @@
-import { EncryptionSettings } from 'types/settings';
+import type { EncryptionSettings } from 'types/settings';
 
 /**
  * 加密算法的设置

@@ -1,4 +1,4 @@
-import { ProjectSettings } from 'types/settings';
+import type { ProjectSettings } from 'types/settings';
 
 const settings: ProjectSettings = {
   applicationTitle: 'Logo',
