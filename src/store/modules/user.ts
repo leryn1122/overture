@@ -10,7 +10,7 @@ import { PageEnum } from '@/enums/pageEnum';
 import { logout as doLogout } from '@/api/auth/user';
 import { LoginParams } from '@/components/Login/src/type';
 import { login as apiLogin } from '@/api/auth/user';
-import { Response } from '@/utils/http/type';
+import type { Response } from 'types/http';
 import Messager from '@/utils/message';
 
 interface UserState {

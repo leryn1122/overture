@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import Axios from '@/utils/http/axios';
-import { RestfulResponse, RestfulRequest } from '@/utils/http/type';
+import type { RestfulResponse, RestfulRequest } from 'types/http'
 
 export { AxiosError, AxiosRequestConfig, AxiosResponse };
 

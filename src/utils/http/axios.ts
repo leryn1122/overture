@@ -1,7 +1,6 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { AbortedRequest } from '@/utils/http/abortedRequest';
-import { InterceptorConfig, RestfulRequest } from '@/utils/http/type';
-import { AxiosError } from 'axios';
+import type { InterceptorConfig, RestfulRequest } from 'types/http';
 
 /** */
 export default class Axios<T> {
