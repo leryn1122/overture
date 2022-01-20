@@ -44,3 +44,5 @@ export function clone<E extends any>(object: E): E {
   const json = JSON.stringify(object);
   return JSON.parse(json);
 }
+
+export function nothing() {};

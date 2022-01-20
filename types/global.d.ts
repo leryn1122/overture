@@ -36,7 +36,7 @@ declare type Named = {
   name: string;
 }
 
-declare interface Fn<T = any, R = T> {
+declare interface Func<T = any, R = T> {
   (...arg: T[]): R;
 }
 
