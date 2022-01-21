@@ -1,5 +1,5 @@
 {
-  "name": "overture-vue",
+  "name": "@overture/parent",
   "version": "1.0.0",
   "author": {
     "name": "Leryn",
@@ -7,21 +7,18 @@
     "url": "https://gitee.com/leryn"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "bootstrap": "pnpm install",
     "clean": "pnpm run clean:dist && pnpm run clean:lib",
-    "clean:dist": "rimraf dist",
-    "clean:lib": "rimraf node_modules",
-    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && pnpm run clean && pnpm run bootstrap",
-    "dev": "cross-env NODE_ENV=development vite",
-    "report": "cross-env REPORT=true pnpm run build",
-    "build": "cross-env NODE_ENV=production vue-tsc --noEmit && vite build && esno ./build/postBuild.ts",
+    "clean:dist": "rimraf dist && pnpm run clean -r --stream",
+    "clean:lib": "rimraf node_modules && pnpm run clean:lib -r --stream",
+    "reinstall": "rimraf pnpm-lock.yaml && pnpm run -r clean --stream && pnpm run bootstrap",
+    "dev": "pnpm run -C admin dev",
+    "build": "pnpm run -C admin build",
     "preview": "pnpm run build && vite preview",
-    "preview:dist": "vite preview",
-    "serve": "vite preview",
-    "format": "prettier --config .prettierrc.js --write {src,build,mock,test}/**/*.{ts,js,scss,less,html,vue} --write vite.config.ts",
-    "docker:local": "cross-env NODE_ENV=development bash ./build/docker/docker-build-local.sh",
-    "docker:remote": "cross-env NODE_ENV=production tar --exclude=app.tar.gz --exclude=dist/* --exclude=node_modules/* --exclude=*.local -zcf app.tar.gz . && esno ./build/docker/docker-build-remote.ts",
-    "docker:deploy": "bash ./build/docker/docker-deploy.sh"
+    "preview:dist": "pnpm run -C admin preview:dist",
+    "serve": "pnpm run -C admin serve",
+    "format": "prettier --config .prettierrc.js --write {src,mock}/**/*.{ts,js,scss,less,html,vue} --write vite.config.ts"
   },
   "main": "dist/index.js",
   "env": {
@@ -54,7 +51,7 @@
     "@types/crypto-js": "^4.0.2",
     "@types/lodash-es": "^4.17.5",
     "@types/mockjs": "^1.0.4",
-    "@types/node": "^16.11.11",
+    "@types/node": "^16.11.12",
     "@types/qrcode": "^1.4.2",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.6.0",
@@ -74,7 +71,6 @@
     "esno": "^0.12.1",
     "less": "^4.1.2",
     "mockjs": "^1.1.0",
-    "now": "^21.0.1",
     "postcss": "^8.4.5",
     "prettier": "^2.5.0",
     "rimraf": "^3.0.2",
@@ -83,7 +79,7 @@
     "rxjs": "^7.4.0",
     "sass": "^1.48.0",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.2",
+    "typescript": "^4.5.4",
     "unplugin-vue-components": "^0.17.13",
     "vite": "^2.7.0",
     "vite-plugin-compression": "^0.3.6",

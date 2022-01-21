@@ -1,0 +1,10 @@
+{
+  "name": "@overture/i18n",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "index.d.js",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "license": "MIT"
+}
