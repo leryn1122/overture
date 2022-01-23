@@ -10,7 +10,7 @@ declare module '@vue/runtime-core' {
   }
 }
 
-declare module '*.tsx';
+// declare module '*.tsx';
 
 declare global {
 }
@@ -32,7 +32,7 @@ declare type Dictionary<T> = Record<string, T>;
 
 declare type Recordable<T = any> = Record<string, T>;
 
-declare type Named = {
+export type Named = {
   name: string;
 }
 
