@@ -1,4 +1,4 @@
-import { EncryptionSettings } from 'types/settings';
+import { settings as EncryptionSettings } from '@/settings/encryptionSettings';
 
 import CipherOption from 'crypto-js';
 import { encrypt, decrypt } from 'crypto-js/aes';

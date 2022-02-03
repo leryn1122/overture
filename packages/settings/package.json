@@ -2,11 +2,6 @@
   "name": "@overture/settings",
   "version": "1.0.0",
   "main": "index.ts",
-  "module": "index.ts",
-  "types": "index.d.js",
-  "unpkg": "index.js",
-  "jsdelivr": "index.js",
-  "license": "MIT",
   "dependencies": {
     "@overture/httpclient": "workspace:^1.0.0",
     "@overture/i18n": "workspace:^1.0.0",

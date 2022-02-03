@@ -11,7 +11,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { computed, ref, unref, onMounted } from 'vue';
-import type { Recordable } from '@overture/types';
+import type { Recordable } from 'types/global';
 import { Form, FormItem, Row, RowProps } from 'ant-design-vue';
 import { BasicProps } from './type';
 

@@ -1,15 +1,13 @@
 import type { Locale } from '@/locales/type';
-import type { LocaleSettings } from 'types/settings';
-
 import { defineStore } from 'pinia';
 import { store } from '@/store';
 
 import { settings as localeSettings } from '@/settings/localeSettings';
 
-const lsLocaleSetting = localeSettings as LocaleSettings;
+const lsLocaleSetting = localeSettings;
 
 interface LocaleState {
-  localInfo: LocaleSettings;
+  localInfo: typeof localeSettings;
 }
 
 export const useLocaleStore = defineStore({
@@ -30,7 +28,7 @@ export const useLocaleStore = defineStore({
      * Set up multilingual information and cache
      * @param info multilingual info
      */
-    setLocaleInfo(info: Partial<LocaleSettings>) {
+    setLocaleInfo(info: typeof localeSettings) {
       this.localInfo = { ...this.localInfo, ...info };
     },
     /**

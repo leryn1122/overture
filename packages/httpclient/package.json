@@ -2,11 +2,13 @@
   "name": "@overture/httpclient",
   "version": "1.0.0",
   "main": "index.ts",
-  "module": "index.ts",
-  "types": "index.d.js",
-  "unpkg": "index.js",
-  "jsdelivr": "index.js",
   "license": "MIT",
+  "env": {
+    "node": true
+  },
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "axios": "^0.24.0",
     "qs": "^6.10.2"

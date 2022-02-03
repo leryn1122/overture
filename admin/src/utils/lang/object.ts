@@ -45,4 +45,4 @@ export function clone<E extends any>(object: E): E {
   return JSON.parse(json);
 }
 
-export function nothing() {};
+export function nothing() {}

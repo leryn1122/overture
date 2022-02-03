@@ -1,5 +1,3 @@
-
-
 const NOT_ALIVE = 0;
 
 /**

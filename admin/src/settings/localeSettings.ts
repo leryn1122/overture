@@ -1,4 +1,4 @@
-import type { LocaleSettings } from 'types/settings';
+import type { LocaleSettings } from '@overture/settings';
 
 /**
  * 本地化的默认设置

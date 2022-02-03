@@ -1,4 +1,4 @@
-const { defineConfig } = require("vite")
+const { defineConfig } = require('vite');
 
 module.exports = defineConfig({
   env: {
@@ -15,7 +15,7 @@ module.exports = defineConfig({
     jsxPragma: 'React',
     ecmaFeatures: {
       jsx: true,
-    }
+    },
   },
   extends: [
     '@vue/typescript/recommended',

@@ -1,4 +1,4 @@
-import type { EncryptionSettings } from 'types/settings';
+import type { EncryptionSettings } from '@overture/settings';
 
 /**
  * 加密算法的设置

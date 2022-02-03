@@ -10,11 +10,11 @@
     "preinstall": "npx only-allow pnpm",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && pnpm run clean && pnpm run bootstrap",
     "dev": "cross-env NODE_ENV=development vite",
-    "build": "cross-env NODE_ENV=production vue-tsc --noEmit && vite build && esno ./build/postBuild.ts",
+    "build": "cross-env NODE_ENV=production vue-tsc --noEmit && vite build && esno ../build/postBuild.ts",
     "preview": "pnpm run build && vite preview",
     "preview:dist": "vite preview",
     "serve": "vite preview",
-    "format": "prettier --config .prettierrc.js --write {src,build,mock,test}/**/*.{ts,js,scss,less,html,vue} --write vite.config.ts",
+    "format": "prettier --config .prettierrc.js --write {src,build,mock,test}/**/*.{ts,js,scss,less,vue} --write vite.config.ts",
     "docker:deploy": "bash ./build/docker/docker-deploy.sh"
   },
   "engines": {

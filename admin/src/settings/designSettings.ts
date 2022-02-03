@@ -1,7 +1,5 @@
-import type { DesignSettings } from 'types/settings';
+import type { DesignSettings } from '@overture/settings';
 
-const settings : DesignSettings = {
-
-}
+const settings: DesignSettings = {};
 
 export { settings };

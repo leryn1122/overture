@@ -1,5 +1,3 @@
-import type { SiteSettings } from 'types/settings';
+import type { SiteSettings } from '@overture/settings';
 
-export const settings: SiteSettings = {
-
-}
+export const settings: SiteSettings = {};

@@ -1,4 +1,4 @@
-import type { ProjectSettings } from 'types/settings';
+import type { ProjectSettings } from '@overture/settings';
 
 const settings: ProjectSettings = {
   applicationTitle: 'Logo',

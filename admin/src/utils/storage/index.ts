@@ -8,9 +8,7 @@ import type { StorageProps } from 'types/storage';
  *  - WebSQL 仅限Chrome
  *  - IndexedDB
  */
-export function createStorage() {
-
-}
+export function createStorage() {}
 
 export class WebStorage {
   private storage?: Storage;
@@ -40,5 +38,4 @@ export class WebStorage {
   public clear(): void {
     this.storage?.clear();
   }
-
 }

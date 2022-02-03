@@ -75,10 +75,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       __APP_INFO__: JSON.stringify(__APP_INFO__),
     },
     optimizeDeps: {
-      include: [
-        '@vue/runtime-core',
-        'ant-design-vue'
-      ],
+      include: ['@vue/runtime-core', 'ant-design-vue'],
     },
   };
 };

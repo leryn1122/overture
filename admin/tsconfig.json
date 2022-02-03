@@ -42,7 +42,8 @@
     "types/storage.ts",
     "types/tsx.ts",
     "types/vue.ts",
-    "types/event.ts"
+    "types/event.ts",
+    "types/settings.ts"
   ],
   "exclude": [
     "node_modules",
