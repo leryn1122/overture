@@ -45,3 +45,10 @@
 //   VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE?: boolean;
 //   VITE_DOCKER_HOST?: string;
 // }
+
+
+declare module global {
+  interface Func<T = any, R = T> {
+    (...arg: T[]): R;
+  }
+}

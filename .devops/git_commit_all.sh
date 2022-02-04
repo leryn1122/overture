@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$(dirname ${0-$BASHSOURCE})/.."
+cd "$(dirname ${0-$BASHSOURCE})/.." || exit 1
 
 CURRENT_BRANCH="$(git branch --show-current)"
 [[ "${CURRENT_BRANCH}" == 'master' ]] \
@@ -9,4 +9,4 @@ CURRENT_BRANCH="$(git branch --show-current)"
 
 git add .
 git commit -m "`date +%Y%m%d`: ${@-Updates}."
-git push -f origin "${CURRENT_BRANCH}"
+# git push -f origin "${CURRENT_BRANCH}"

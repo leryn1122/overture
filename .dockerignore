@@ -16,11 +16,12 @@ yarn-error.log*
 *.njsproj
 *.sln
 
-devops
+.devops
 document
 .drone.yml
-.eslint*
-.prettier*
 Dockerfile
 LICENSE
-READEME.md
+*.md
+
+.eslint*
+.prettier*
