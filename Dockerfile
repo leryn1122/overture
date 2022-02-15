@@ -9,14 +9,14 @@ COPY package.json pnpm-lock.yaml .
 RUN pnpm install
 
 COPY . .
-RUN pnpm build
+RUN pnpm install && pnpm build
 
 FROM docker.leryn.top/nginx:1.21.1 as publish
 
 WORKDIR /usr/share/nginx/html/
 
 COPY ./nginx.conf  /etc/nginx/nginx.conf.d/app.conf
-COPY --from=build  /opt/dist/admin/   .
+COPY --from=build  /opt/admin/dist/   .
 
 EXPOSE 80/tcp
 
