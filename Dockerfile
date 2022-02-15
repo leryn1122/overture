@@ -16,7 +16,7 @@ FROM docker.leryn.top/nginx:1.21.1 as publish
 WORKDIR /usr/share/nginx/html/
 
 COPY ./nginx.conf  /etc/nginx/nginx.conf.d/app.conf
-COPY --from=build  /opt/dist/*/   .
+COPY --from=build  /opt/dist/admin/   .
 
 EXPOSE 80/tcp
 
