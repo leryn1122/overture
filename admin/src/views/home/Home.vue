@@ -14,12 +14,8 @@
           Hello Leryn!!
           <li>主页:<a href="https://leryn.top">https://leryn.top</a></li>
           <li>Docker仓库:<a href="https://docker.leryn.top">https://docker.leryn.top</a></li>
-          <li>Docker API:<a href="https://docker-api.leryn.top">https://docker-api.leryn.top</a></li>
-          <li>Docker仓库UI:<a href="https://docker-ui.leryn.top">https://docker-ui.leryn.top</a></li>
+          <li>Docker仓库UI:<a href="https://docker-adm.leryn.top">https://docker-ui.leryn.top</a></li>
           <li>流水线:<a href="https://drone.leryn.top">https://drone.leryn.top</a></li>
-          <li>网盘:<a href="https://disk.leryn.top">https://disk.leryn.top</a></li>
-          <li>容器管理:<a href="https://portainer.leryn.top">https://portainer.leryn.top</a></li>
-          <li>Web Shell:<a href="https://webssh.leryn.top">https://webssh.leryn.top</a></li>
         </a-layout-content>
       </a-layout>
     </a-layout-content>
@@ -31,6 +27,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
+import http from '@/utils/http';
 import Footer from '@/views/container/Footer.vue';
 import Header from '@/views/container/Header.vue';
 import Sider from '@/views/container/Sider.vue';
@@ -128,10 +125,13 @@ export default defineComponent({
       return result;
     }
 
+    let data = http.get('/v1/homepage');
+
     return {
       content,
       selected,
       toArray,
+      data,
     };
   },
 });

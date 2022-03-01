@@ -9,4 +9,4 @@ CURRENT_BRANCH="$(git branch --show-current)"
 
 git add .
 git commit -m "`date +%Y%m%d`: ${@-Updates}."
-git push -f origin "${CURRENT_BRANCH}"
+# git push -f origin "${CURRENT_BRANCH}"

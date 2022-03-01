@@ -49,4 +49,5 @@ export function setupHttp(app: ReturnType<typeof createApp>): ReturnType<typeof 
   return app;
 }
 
+export { http as httpclient };
 export default http; // or httpclient
