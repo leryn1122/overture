@@ -4,10 +4,10 @@ yarn-error.log*
 .pnpm-debug.log*
 
 .devops
+docs
 .drone.yml
-.git*
-document
 Dockerfile
+.git*
 LICENSE
 **.md
 
