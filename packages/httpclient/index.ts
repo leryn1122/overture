@@ -4,7 +4,6 @@ import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import Axios from './src/axios';
 import type { RestfulResponse, RestfulRequest } from './src/type';
 
-export { AxiosError, AxiosRequestConfig, AxiosResponse };
 
 /** 判断是需要Credentials */
 let baseUrl: URL = new URL(import.meta.env.VITE_APP_BASE_URL as string);
@@ -49,5 +48,6 @@ export function setupHttp(app: ReturnType<typeof createApp>): ReturnType<typeof 
   return app;
 }
 
+export { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 export { AbortedRequest } from './src/abortedRequest';
 export default http; // or httpclient

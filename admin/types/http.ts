@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { AxiosRequestConfig, AxiosResponse } from '@leryn/httpclient';
 
 /** 拦截器配置 */
 export interface InterceptorConfig<T = any> {

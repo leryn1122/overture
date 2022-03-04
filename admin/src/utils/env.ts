@@ -1,6 +1,6 @@
 /** @format */
 
-import { GlobalEnvConfig } from '@/types/config';
+import { GlobalEnvConfig } from '@/config';
 
 export const getGlobalEnvConfig = (): GlobalEnvConfig => {
   const env = import.meta.env;

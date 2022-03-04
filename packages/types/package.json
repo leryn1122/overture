@@ -8,7 +8,7 @@
   "jsdelivr": "index.js",
   "license": "MIT",
   "dependencies": {
-    "rxjs": "^7.4.0",
-    "vue-router": "^4.0.12"
+    "rxjs": "^7.5.4",
+    "vue-router": "^4.0.13"
   }
 }
