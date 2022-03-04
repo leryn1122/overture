@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { ErrorPage } from '@/components/ErrorPage';
+import { ErrorPage } from '@leryn/components';
 
 export default defineComponent({
   name: '403',

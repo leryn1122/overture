@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
 import App from '@/App.vue';
 
-import { registerGlobalComponent } from '@/components/index';
+// import { registerGlobalComponent } from '@/components/index';
 import { AppConfig } from '@/config/app';
 import { setupI18n } from '@/locales';
 import { setupRouter } from '@/router';
@@ -17,7 +17,7 @@ async function run() {
     import('ant-design-vue/dist/antd.less');
   }
 
-  registerGlobalComponent(app);
+  // registerGlobalComponent(app);
 
   // Internationalization.
   await setupI18n(app);

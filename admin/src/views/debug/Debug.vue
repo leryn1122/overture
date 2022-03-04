@@ -10,13 +10,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { Loading } from '@/components/Loading';
+import { Loading } from '@leryn/components';
 // import { Terminal } from '@/components/Terminal';
-import ErrorLog from '@/views/error/ErrorLog.vue';
+// import ErrorLog from '@/views/error/ErrorLog.vue';
 
 export default defineComponent({
   name: 'Debug',
-  components: { Loading, ErrorLog },
+  components: { Loading },
   setup() {
     let error: Error = new Error();
 

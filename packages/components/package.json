@@ -10,5 +10,19 @@
     "node": ">=16"
   },
   "dependencies": {
+    "@ant-design/colors": "^6.0.0",
+    "@ant-design/icons-vue": "^6.0.1",
+    "@leryn/httpclient": "workspace:^1.0.0",
+    "@leryn/types": "workspace:^1.0.0",
+    "ant-design-vue": "^3.0.0-alpha.14",
+    "echarts": "^5.2.2",
+    "qrcode": "^1.5.0",
+    "xterm": "^4.15.0",
+    "xterm-addon-attach": "^0.6.0",
+    "xterm-addon-fit": "^0.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "@types/qrcode": "^1.4.2"
   }
 }

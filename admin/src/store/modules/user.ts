@@ -8,7 +8,7 @@ import { TOKEN_KEY, getAuth } from '@/utils/auth';
 import Router from '@/router';
 import { PageEnum } from '@/enums/pageEnum';
 import { logout as doLogout } from '@/api/auth/user';
-import { LoginParams } from '@/components/Login/src/type';
+import type { LoginParams } from '@leryn/components';
 import { login as apiLogin } from '@/api/auth/user';
 import type { Response } from 'types/http';
 import Messager from '@/utils/message';

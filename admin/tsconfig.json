@@ -15,7 +15,6 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "rootDir": ".",
     "paths": {
       "@/*": [
         "src/*"
@@ -34,15 +33,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "types/*.d.ts",
-    "types/router.ts",
-    "types/global.ts",
-    "types/http.ts",
-    "types/ref.ts",
-    "types/storage.ts",
-    "types/tsx.ts",
-    "types/vue.ts",
-    "types/event.ts",
-    "types/settings.ts"
+    "types/*.ts",
   ],
   "exclude": [
     "node_modules",
