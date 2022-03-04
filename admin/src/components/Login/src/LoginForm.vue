@@ -41,7 +41,7 @@
 import { defineComponent, PropType, reactive, ref, unref, UnwrapRef } from 'vue';
 
 import Router from '@/router';
-import http from '@/utils/http';
+import http from '@leryn/httpclient';
 import { hasToken } from '@/utils/auth';
 import { LoginParams } from '@/api/auth/type';
 import { UserStore } from '@/store/modules/user';

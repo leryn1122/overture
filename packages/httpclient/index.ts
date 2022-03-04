@@ -1,8 +1,8 @@
 import { createApp } from 'vue';
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import Axios from '@/utils/http/axios';
-import type { RestfulResponse, RestfulRequest } from 'types/http';
+import Axios from './src/axios';
+import type { RestfulResponse, RestfulRequest } from './src/type';
 
 export { AxiosError, AxiosRequestConfig, AxiosResponse };
 
@@ -49,4 +49,5 @@ export function setupHttp(app: ReturnType<typeof createApp>): ReturnType<typeof 
   return app;
 }
 
+export { AbortedRequest } from './src/abortedRequest';
 export default http; // or httpclient

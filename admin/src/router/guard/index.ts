@@ -1,6 +1,6 @@
 import type { Router, RouteLocationNormalized } from 'vue-router';
 import { Nullable } from 'types/global';
-import { AbortedRequest } from '@/utils/http/abortedRequest';
+import { AbortedRequest } from '@leryn/httpclient';
 import projectSettings from '@/settings/projectSettings';
 import Messager from '@/utils/message';
 

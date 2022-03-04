@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
-import http from '@/utils/http';
+import http from '@leryn/httpclient';
 import Footer from '@/views/container/Footer.vue';
 import Header from '@/views/container/Header.vue';
 import Sider from '@/views/container/Sider.vue';
