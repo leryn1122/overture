@@ -1,5 +1,5 @@
 {
-  "name": "@overture/i18n",
+  "name": "@leryn/i18n",
   "version": "1.0.0",
   "main": "index.ts",
   "module": "index.ts",

@@ -1,4 +1,4 @@
-import type { LocaleSettings } from '@overture/settings';
+import type { LocaleSettings } from '@leryn/settings';
 
 /**
  * 本地化的默认设置

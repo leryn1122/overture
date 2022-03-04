@@ -1,4 +1,4 @@
-import { Nullable } from '@overture/types/global';
+import { Nullable } from '@leryn/types/global';
 
 export function dataUrlToBlob(base64Buf: string): Blob {
   const array = base64Buf.split(',');

@@ -131,9 +131,9 @@ importers:
     specifiers:
       '@ant-design/colors': ^6.0.0
       '@ant-design/icons-vue': ^6.0.1
-      '@overture/settings': workspace:^1.0.0
-      '@overture/types': workspace:^1.0.0
-      '@overture/utils': workspace:^1.0.0
+      '@leryn/settings': workspace:^1.0.0
+      '@leryn/types': workspace:^1.0.0
+      '@leryn/utils': workspace:^1.0.0
       '@types/crypto-js': ^4.0.2
       '@types/lodash-es': ^4.17.5
       '@types/mockjs': ^1.0.4
@@ -195,7 +195,7 @@ importers:
     dependencies:
       '@ant-design/colors': registry.nlark.com/@ant-design/colors/6.0.0
       '@ant-design/icons-vue': registry.nlark.com/@ant-design/icons-vue/6.0.1_vue@3.2.26
-      '@overture/utils': link:../packages/utils
+      '@leryn/utils': link:../packages/utils
       ant-design-vue: registry.npmmirror.com/ant-design-vue/3.0.0-alpha.14_ae87cbba5ec93a01f3fe1197df446ca3
       axios: registry.npmmirror.com/axios/0.24.0
       crypto-js: registry.npmmirror.com/crypto-js/4.1.1
@@ -213,8 +213,8 @@ importers:
       xterm-addon-attach: registry.npmmirror.com/xterm-addon-attach/0.6.0_xterm@4.15.0
       xterm-addon-fit: registry.npmmirror.com/xterm-addon-fit/0.5.0_xterm@4.15.0
     devDependencies:
-      '@overture/settings': link:../packages/settings
-      '@overture/types': link:../packages/types
+      '@leryn/settings': link:../packages/settings
+      '@leryn/types': link:../packages/types
       '@types/crypto-js': registry.npmmirror.com/@types/crypto-js/4.0.2
       '@types/lodash-es': registry.npmmirror.com/@types/lodash-es/4.17.5
       '@types/mockjs': registry.npmmirror.com/@types/mockjs/1.0.4
@@ -274,10 +274,10 @@ importers:
 
   packages/router:
     specifiers:
-      '@overture/types': workspace:^1.0.0
+      '@leryn/types': workspace:^1.0.0
       vue-router: ^4.0.12
     dependencies:
-      '@overture/types': link:../types
+      '@leryn/types': link:../types
       vue-router: registry.npmmirror.com/vue-router/4.0.12_vue@3.2.26
 
   packages/service:
@@ -290,17 +290,17 @@ importers:
 
   packages/settings:
     specifiers:
-      '@overture/httpclient': workspace:^1.0.0
-      '@overture/i18n': workspace:^1.0.0
-      '@overture/router': workspace:^1.0.0
-      '@overture/service': workspace:^1.0.0
-      '@overture/types': workspace:^1.0.0
+      '@leryn/httpclient': workspace:^1.0.0
+      '@leryn/i18n': workspace:^1.0.0
+      '@leryn/router': workspace:^1.0.0
+      '@leryn/service': workspace:^1.0.0
+      '@leryn/types': workspace:^1.0.0
     dependencies:
-      '@overture/httpclient': link:../httpclient
-      '@overture/i18n': link:../locale
-      '@overture/router': link:../router
-      '@overture/service': link:../service
-      '@overture/types': link:../types
+      '@leryn/httpclient': link:../httpclient
+      '@leryn/i18n': link:../locale
+      '@leryn/router': link:../router
+      '@leryn/service': link:../service
+      '@leryn/types': link:../types
 
   packages/storage:
     specifiers:

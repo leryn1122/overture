@@ -1,4 +1,4 @@
-import type { EncryptionSettings } from '@overture/settings';
+import type { EncryptionSettings } from '@leryn/settings';
 
 /**
  * 加密算法的设置

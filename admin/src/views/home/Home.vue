@@ -125,7 +125,7 @@ export default defineComponent({
       return result;
     }
 
-    let data = http.get('/v1/homepage');
+    let data = {}; //http.get('/v1/homepage');
 
     return {
       content,

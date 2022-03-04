@@ -1,5 +1,5 @@
 {
-  "name": "@overture/router",
+  "name": "@leryn/router",
   "version": "1.0.0",
   "main": "index.ts",
   "module": "index.ts",
@@ -8,7 +8,7 @@
   "jsdelivr": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@overture/types": "workspace:^1.0.0",
+    "@leryn/types": "workspace:^1.0.0",
     "vue-router": "^4.0.12"
   }
 }

@@ -1,4 +1,4 @@
-import type { DesignSettings } from '@overture/settings';
+import type { DesignSettings } from '@leryn/settings';
 
 const settings: DesignSettings = {};
 

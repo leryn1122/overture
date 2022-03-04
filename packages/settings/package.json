@@ -1,12 +1,12 @@
 {
-  "name": "@overture/settings",
+  "name": "@leryn/settings",
   "version": "1.0.0",
   "main": "index.ts",
   "dependencies": {
-    "@overture/httpclient": "workspace:^1.0.0",
-    "@overture/i18n": "workspace:^1.0.0",
-    "@overture/router": "workspace:^1.0.0",
-    "@overture/service": "workspace:^1.0.0",
-    "@overture/types": "workspace:^1.0.0"
+    "@leryn/httpclient": "workspace:^1.0.0",
+    "@leryn/i18n": "workspace:^1.0.0",
+    "@leryn/router": "workspace:^1.0.0",
+    "@leryn/service": "workspace:^1.0.0",
+    "@leryn/types": "workspace:^1.0.0"
   }
 }

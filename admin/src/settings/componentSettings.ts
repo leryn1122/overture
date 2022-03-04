@@ -1,4 +1,4 @@
-import { ComponentSettings } from '@overture/settings';
+import { ComponentSettings } from '@leryn/settings';
 
 const settings: ComponentSettings = {};
 

@@ -23,7 +23,7 @@
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
     "@ant-design/icons-vue": "^6.0.1",
-    "@overture/utils": "workspace:^1.0.0",
+    "@leryn/utils": "workspace:^1.0.0",
     "ant-design-vue": "^3.0.0-alpha.14",
     "axios": "^0.24.0",
     "crypto-js": "^4.1.1",
@@ -42,8 +42,8 @@
     "xterm-addon-fit": "^0.5.0"
   },
   "devDependencies": {
-    "@overture/settings": "workspace:^1.0.0",
-    "@overture/types": "workspace:^1.0.0",
+    "@leryn/settings": "workspace:^1.0.0",
+    "@leryn/types": "workspace:^1.0.0",
     "@types/crypto-js": "^4.0.2",
     "@types/lodash-es": "^4.17.5",
     "@types/mockjs": "^1.0.4",
