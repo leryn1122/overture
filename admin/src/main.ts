@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import App from '@/App.vue';
 
 // import { registerGlobalComponent } from '@/components/index';
-import { AppConfig } from '@/config/app';
+import { AppConfig } from '@/settings/app';
 import { setupI18n } from '@/locales';
 import { setupRouter } from '@/router';
 import { setupStorage } from '@/store';

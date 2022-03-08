@@ -13,4 +13,4 @@ export * from './src/components/Template';
 export * from './src/components/Terminal';
 export * from './src/components/Upload';
 
-export type { LoginParams } from './src/components/Login';
+// export type { LoginParams } from './src/components/Login';

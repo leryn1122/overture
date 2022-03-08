@@ -8,10 +8,15 @@ import { TOKEN_KEY, getAuth } from '@/utils/auth';
 import Router from '@/router';
 import { PageEnum } from '@/enums/pageEnum';
 import { logout as doLogout } from '@/api/auth/user';
-import type { LoginParams } from '@leryn/components';
+// import type { LoginParams } from '@leryn/components';
 import { login as apiLogin } from '@/api/auth/user';
 import type { Response } from 'types/http';
 import Messager from '@/utils/message';
+
+export declare type LoginParams = {
+  username: string;
+  password: string;
+}
 
 interface UserState {
   userInfo: Nullable<UserInfo>;
