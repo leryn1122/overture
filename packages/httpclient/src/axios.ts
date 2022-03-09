@@ -75,8 +75,7 @@ export default class Axios<T> {
   /** 发起请求 */
   request(config: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return new Promise((resolve, reject) => {
-      this.instance
-        .request(config)
+      this.instance.request(config)
         .then((response) => {
           resolve(response);
         })

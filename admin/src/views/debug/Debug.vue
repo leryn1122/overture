@@ -5,7 +5,7 @@
     嗯嗯嗯
   </div>
   <!-- <BasicForm>表单</BasicForm> -->
-  <ErrorLog :error="throwError()"></ErrorLog>
+  <!-- <ErrorLog :error="throwError()"></ErrorLog> -->
 </template>
 
 <script lang="ts">

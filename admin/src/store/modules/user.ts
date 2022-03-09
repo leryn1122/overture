@@ -101,8 +101,7 @@ export const UserStore = defineStore({
           this.reset();
           removeToken();
           Messager.success(response.data.message);
-          goLogin && Router.push(PageEnum.LOGIN);
-          Router.push('/');
+          Router.push(goLogin ? PageEnum.LOGIN : '/');
         })
         .catch((error) => {
           Messager.success('Fail to log out.');

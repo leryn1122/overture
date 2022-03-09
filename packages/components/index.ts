@@ -2,6 +2,7 @@ export * from './src/components/Application';
 export * from './src/components/Authority';
 export * from './src/components/Avatar';
 export * from './src/components/Button';
+export * from './src/components/Editor';
 export * from './src/components/ErrorPage';
 export * from './src/components/Form';
 export * from './src/components/Loading';

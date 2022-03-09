@@ -87,6 +87,7 @@ export default defineComponent({
       });
     }
 
+    /**  */
     function onLogout() {
       userStore.logout(false);
     }

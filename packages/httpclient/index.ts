@@ -4,18 +4,19 @@ import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import Axios from './src/axios';
 import type { RestfulResponse, RestfulRequest } from './src/type';
 
-
 /** 判断是需要Credentials */
+// @ts-ignore
 let baseUrl: URL = new URL(import.meta.env.VITE_APP_BASE_URL as string);
 let withCredentials = location.hostname != baseUrl.hostname || location.port != baseUrl.port;
 
 /** 基于Axios封装的, HTTP客户端 */
 const http = new Axios<RestfulResponse<any>>({
   customConfig: {
+    // @ts-ignore
     baseURL: import.meta.env.VITE_APP_BASE_URL as string,
     headers: {
-      'Content-Type': 'application/json;charset=utf-8',
-      'X-Access-Token': localStorage.getItem('token') || '',
+      'Content-Type': 'application/json',
+      'X-Access-Token': localStorage.getItem('token') || null,
     },
     responseType: 'json',
     timeout: 10 * 1000,
@@ -50,4 +51,5 @@ export function setupHttp(app: ReturnType<typeof createApp>): ReturnType<typeof 
 
 export { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 export { AbortedRequest } from './src/abortedRequest';
+export { http as httpclient };
 export default http; // or httpclient

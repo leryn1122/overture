@@ -69,6 +69,11 @@ export const BASE_ROUTES: Array<RouteRecordRaw> = [
     name: 'Debug',
     component: () => import('@/views/debug/Debug.vue'),
   },
+    {
+    path: '/editor',
+    name: 'Editor',
+    component: () => import('@/views/editor/Editor.vue'),
+  },
 ];
 
 export default BASE_ROUTES;
