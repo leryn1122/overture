@@ -16,7 +16,7 @@ const http = new Axios<RestfulResponse<any>>({
     baseURL: import.meta.env.VITE_APP_BASE_URL as string,
     headers: {
       'Content-Type': 'application/json',
-      'X-Access-Token': localStorage.getItem('token') || null,
+      'X-Access-Token': localStorage.getItem('token') || false,
     },
     responseType: 'json',
     timeout: 10 * 1000,
@@ -51,5 +51,5 @@ export function setupHttp(app: ReturnType<typeof createApp>): ReturnType<typeof 
 
 export { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 export { AbortedRequest } from './src/abortedRequest';
-export { http as httpclient };
+// export { http as httpclient };
 export default http; // or httpclient
