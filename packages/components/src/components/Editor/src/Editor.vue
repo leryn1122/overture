@@ -26,12 +26,12 @@ export default defineComponent({
 
     let editor: any = null;
 
-    let webEditorContainer = ref<HTMLElement | null>(null);
+    let webEditorContainer = ref<HTMLElement | null>(null) ;
     console.log(webEditorContainer);
 
     let initEditor = () => {
         editor = monaco.editor.create(
-          webEditorContainer!.value, {
+          webEditorContainer.value as HTMLElement, {
             value: "/*\n * Edit your code here ...\n */",
             language: 'sql',
             automaticLayout: true,
