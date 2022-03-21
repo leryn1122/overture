@@ -5,13 +5,6 @@ export const ROOT_ROUTE: RouteRecordRaw = {
   path: '/',
   redirect: '/home',
 };
-
-// export const HOMEPAGE_ROUTE: RouteRecordRaw = {
-//   path: '/homepage',
-//   name: 'Homepage',
-//   component: () => import('@/views/Homepage.vue'),
-// };
-
 export const HOME_ROUTE: RouteRecordRaw = {
   name: 'Home',
   path: '/home',

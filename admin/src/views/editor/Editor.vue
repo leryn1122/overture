@@ -11,5 +11,11 @@ export default defineComponent({
   components: {
     Editor,
   },
+  setup() {
+    let config = {};
+    return {
+      config,
+    }
+  }
 });
 </script>

@@ -5,11 +5,11 @@ import type { LoginParams } from './type';
  * API的URL
  */
 enum API {
-  REGISTER = '/v1/register.do',
-  LOGIN = '/v1/login.do',
-  LOGOUT = '/v1/logout.do',
-  USER_INFO = '/v1/userInfo.do',
-  PERM_CODE = '/v1/getPermCode.do',
+  REGISTER = '/v1/auth/register.do',
+  LOGIN = '/v1/auth/login.do',
+  LOGOUT = '/v1/auth/logout.do',
+  USER_INFO = '/v1/auth/userInfo.do',
+  PERM_CODE = '/v1/auth/getPermCode.do',
 }
 
 /**
