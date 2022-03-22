@@ -8,6 +8,8 @@
   "jsdelivr": "index.js",
   "license": "MIT",
   "dependencies": {
-    "rxjs": "^7.5.4"
+    "crypto-js": "^4.1.1",
+    "rxjs": "^7.5.4",
+    "vue": "^3.2.31"
   }
 }

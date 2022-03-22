@@ -1,6 +1,5 @@
 import { defineComponent, defineAsyncComponent } from 'vue';
 import { Spin } from 'ant-design-vue';
-import { nothing } from '@/utils/lang/object';
 import type { Func } from 'types/global';
 
 interface Options {
@@ -21,6 +20,6 @@ export function createAsyncComponent(
     loadingComponent: loading ? <Spin spinning={true} size={size} /> : undefined,
     timeout: timeout,
     delay: delay,
-    onError: !retry ? nothing : nothing
+    onError: !retry ? ()=>{} : ()=>{}
   });
 }

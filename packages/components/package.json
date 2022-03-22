@@ -14,6 +14,7 @@
     "@ant-design/icons-vue": "^6.0.1",
     "@leryn/httpclient": "workspace:^1.0.0",
     "@leryn/types": "workspace:^1.0.0",
+    "@leryn/utils": "workspace:^1.0.0",
     "ant-design-vue": "^3.0.0-alpha.14",
     "echarts": "^5.2.2",
     "monaco-editor": "^0.32.1",

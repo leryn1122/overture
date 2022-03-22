@@ -34,6 +34,8 @@
     "src/**/*.vue",
     "types/*.d.ts",
     "types/*.ts",
+    "../packages/utils/src/cookie.ts",
+    "../packages/utils/src/color.ts",
   ],
   "exclude": [
     "node_modules",

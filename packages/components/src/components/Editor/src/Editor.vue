@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <div id="webEditorContainer" style='width:100%;height:100%;border:1px solid grey'>123</div> -->
     <div ref="webEditorContainer" style='width:100%;height:100%;border:1px solid grey'>456</div>
   </div>
 </template>
@@ -11,7 +10,6 @@ import { ref } from 'vue';
 import { onMounted, onUnmounted } from 'vue';
 
 import * as monaco from 'monaco-editor';
-// import IStandaloneCodeEditor from 'monaco-editor';
 
 export default defineComponent({
   name: 'Editor',

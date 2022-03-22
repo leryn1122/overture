@@ -156,18 +156,13 @@ importers:
       vite: registry.npmmirror.com/vite/2.8.6_less@4.1.2+sass@1.49.9
       vite-plugin-theme: registry.npmmirror.com/vite-plugin-theme/0.8.1_vite@2.8.6
 
-  admin/dist:
-    specifiers: {}
-
-  admin/public:
-    specifiers: {}
-
   packages/components:
     specifiers:
       '@ant-design/colors': ^6.0.0
       '@ant-design/icons-vue': ^6.0.1
       '@leryn/httpclient': workspace:^1.0.0
       '@leryn/types': workspace:^1.0.0
+      '@leryn/utils': workspace:^1.0.0
       '@types/node': ^17.0.21
       '@types/qrcode': ^1.4.2
       ant-design-vue: ^3.0.0-alpha.14
@@ -183,6 +178,7 @@ importers:
       '@ant-design/icons-vue': registry.npmmirror.com/@ant-design/icons-vue/6.0.1_vue@3.2.31
       '@leryn/httpclient': link:../httpclient
       '@leryn/types': link:../types
+      '@leryn/utils': link:../utils
       ant-design-vue: registry.npmmirror.com/ant-design-vue/3.0.0-beta.13_vue@3.2.31
       echarts: registry.npmmirror.com/echarts/5.3.0
       monaco-editor: registry.npmmirror.com/monaco-editor/0.32.1
@@ -242,9 +238,13 @@ importers:
 
   packages/utils:
     specifiers:
+      crypto-js: ^4.1.1
       rxjs: ^7.5.4
+      vue: ^3.2.31
     dependencies:
+      crypto-js: registry.npmmirror.com/crypto-js/4.1.1
       rxjs: registry.npmmirror.com/rxjs/7.5.4
+      vue: registry.npmmirror.com/vue/3.2.31
 
   server:
     specifiers:
@@ -5921,7 +5921,7 @@ packages:
       esbuild: registry.npmmirror.com/esbuild/0.11.23
       esbuild-plugin-alias: registry.npmmirror.com/esbuild-plugin-alias/0.1.2
       tinycolor2: registry.npmmirror.com/tinycolor2/1.4.2
-      vite: registry.npmmirror.com/vite/2.8.6_less@4.1.2+sass@1.49.9
+      vite: registry.npmmirror.com/vite/2.8.6_less@4.1.2
     transitivePeerDependencies:
       - supports-color
     dev: true

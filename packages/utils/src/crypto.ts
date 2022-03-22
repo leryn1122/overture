@@ -1,5 +1,3 @@
-import { settings as EncryptionSettings } from '@/settings/encryptionSettings';
-
 import CipherOption from 'crypto-js';
 import { encrypt, decrypt } from 'crypto-js/aes';
 import { parse } from 'crypto-js/enc-utf8';

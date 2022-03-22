@@ -46,7 +46,7 @@ import { hasToken } from '@/utils/auth';
 import { LoginParams } from '@/api/auth/type';
 import { UserStore } from '@/store/modules/user';
 import { rules } from './data';
-import { AesEncryption, encryptByBase64 } from '@/utils/crypto';
+import { AesEncryption, encryptByBase64 } from '@leryn/utils';
 
 export default defineComponent({
   name: 'LoginForm',

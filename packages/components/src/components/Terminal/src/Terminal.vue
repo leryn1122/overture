@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div id="terminal" style="width: 100%; height: 100%">终端</div>
+    <div ref="webTerminal" style="width: 100%; height: 100%">终端</div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, onMounted, onDeactivated } from 'vue';
+import { defineComponent, PropType, onMounted, onDeactivated, ref } from 'vue';
 import { Command } from './type';
 
 import 'xterm/css/xterm.css';
@@ -35,7 +35,9 @@ export default defineComponent({
 
     function initTerminal() {
       terminal = new Terminal(iTerminalOptions);
-      terminal.open(document.getElementById('terminal')!);
+
+      const webTerminal = ref<HTMLElement | null>(null);
+      terminal.open(webTerminal.value as HTMLElement);
 
       const fitAddon = new FitAddon();
       const attachAddon = new AttachAddon(socket);
