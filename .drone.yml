@@ -7,8 +7,8 @@ steps:
     image: docker.leryn.top/plugins/docker
     settings:
       registry: docker.leryn.top
-      repo: docker.leryn.top/leryn/overture-vue
-      cache_from: docker.leryn.top/leryn/overture-vue
+      repo: docker.leryn.top/leryn/overture
+      cache_from: docker.leryn.top/leryn/overture
       tags: nightly
     volumes:
       - name: docker-socket
@@ -22,8 +22,8 @@ steps:
     image: docker.leryn.top/plugins/docker
     settings:
       registry: docker.leryn.top
-      repo: docker.leryn.top/leryn/overture-vue
-      cache_from: docker.leryn.top/leryn/overture-vue
+      repo: docker.leryn.top/leryn/overture
+      cache_from: docker.leryn.top/leryn/overture
       tags: latest
     volumes:
       - name: docker-socket
@@ -37,8 +37,8 @@ steps:
     image: docker.leryn.top/plugins/docker
     settings:
       registry: docker.leryn.top
-      repo: docker.leryn.top/leryn/overture-vue
-      cache_from: docker.leryn.top/leryn/overture-vue
+      repo: docker.leryn.top/leryn/overture
+      cache_from: docker.leryn.top/leryn/overture
       tags: stable
     volumes:
       - name: docker-socket

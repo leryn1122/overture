@@ -7,4 +7,4 @@
 # Build frontend.
 # npm run build
 
-docker build -t overture-vue:1.0.0 .
+docker build -t overture:1.0.0 .

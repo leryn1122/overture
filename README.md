@@ -1,4 +1,4 @@
-[![Build Status](https://drone.leryn.top/api/badges/leryn/overture-vue/status.svg?ref=refs/heads/nightly)](https://drone.leryn.top/leryn/overture-vue)
+[![Build Status](https://drone.leryn.top/api/badges/leryn/overture/status.svg?ref=refs/heads/nightly)](https://drone.leryn.top/leryn/overture)
 
 # Vue 3 + Typescript + Vite
 
