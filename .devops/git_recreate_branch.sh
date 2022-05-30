@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd -P "$(dirname ${BASH_SOURCE-$0})/.." >/dev/null || exit 1
+cd -P "$(dirname "${0-$BASHSOURCE}")/.." || exit 1
 
 CURRENT_BRANCH="$(git branch --show-current)"
 [[ "${CURRENT_BRANCH}" == 'master' ]] \
