@@ -11,9 +11,13 @@
     "node": ">=16"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preinstall": "npx only-allow pnpm",
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && pnpm run clean && pnpm run bootstrap",
+    "dev": "cross-env NODE_ENV=development vite",
+    "build": "cross-env NODE_ENV=production vue-tsc --noEmit && vite build && esno ../build/postBuild.ts",
+    "preview": "pnpm run build && vite preview",
+    "preview:dist": "vite preview",
+    "serve": "vite preview"
   },
   "dependencies": {
     "axios": "^0.27.2",
