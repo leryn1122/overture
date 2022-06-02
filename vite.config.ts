@@ -2,7 +2,6 @@ import { ConfigEnv, UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
 import pkg from './package.json';
-import { OUTPUT_DIR } from '../build/constant';
 
 import * as path from 'path';
 import moment from 'moment';
@@ -25,7 +24,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     },
     build: {
       target: 'es2015',
-      outDir: OUTPUT_DIR,
+      outDir: 'dist',
       minify: true,
       manifest: true,
       sourcemap: false,

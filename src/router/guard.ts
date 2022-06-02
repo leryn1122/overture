@@ -1,1 +1,1 @@
-export * from './src/guard/index';
+export * from './guard';

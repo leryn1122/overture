@@ -1,3 +1,3 @@
-declare interface ChangeEvent extends Event {
+export interface ChangeEvent extends Event {
   target: HTMLInputElement;
 }

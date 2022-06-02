@@ -4,6 +4,41 @@ import Messager from '@/utils/message';
 
 export { createStateGuard } from './stateGuard';
 
+
+/**
+ * 创建导航守卫.
+ * 这些方法的顺序是固定, 请不要轻易修改顺序
+ * 可以在保持顺序的同时添加插入点
+ */
+export function setupRouterGuard(router: Router) {
+  // 修改页面加载状态控制
+  createPageGuard(router);
+
+  //
+  createPageLoadingGuard(router);
+
+  // HTTP守卫types/global
+  // createHttpGuard(router);
+
+  // 滚动轴守卫
+  createScrollGuard(router);
+
+  // 消息守卫
+  createMessageGuard(router);
+
+  //
+  createProgressGuard(router);
+
+  // 权限守卫
+  // createPermissionGuard(router);
+
+  //
+  createParamMenuGuard(router);
+
+  //
+  // createStateGuard(router);
+}
+
 /**
  * 修改页面加载状态控制的守卫.
  */

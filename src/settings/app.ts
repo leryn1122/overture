@@ -1,8 +1,8 @@
 /**  跟应用全局相关的静态配置放在这里  */
-import { message } from 'tdesign-vue';
+import { Message } from 'tdesign-vue-next';
 
 const AppConfig = {
-  $message: message,
+  $message: Message,
 };
 
 const StaticConfig = {

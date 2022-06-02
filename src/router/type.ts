@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import { Recordable } from 'types/global';
+import { Recordable } from '@/types/global';
 import { RouteMeta, RouteRecordRaw } from 'vue-router';
 
 export type Component<T = any> =
