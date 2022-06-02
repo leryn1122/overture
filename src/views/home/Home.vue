@@ -1,5 +1,6 @@
 <template>
-  <a-layout id="components-layout-demo-top-side">
+<div></div>
+<!-- <a-layout id="components-layout-demo-top-side">
     <a-layout-header class="header">
       <Header :menu="toArray(content.menu)" />
     </a-layout-header>
@@ -22,7 +23,7 @@
     <a-layout>
       <Footer />
     </a-layout>
-  </a-layout>
+  </a-layout> -->
 </template>
 
 <script lang="ts">
@@ -46,11 +47,11 @@ export type Menu = {
 
 export default defineComponent({
   name: 'Home',
-  components: {
-    Sider,
-    Header,
-    Footer,
-  },
+  // components: {
+  //   Sider,
+  //   Header,
+  //   Footer,
+  // },
   setup() {
     let content = reactive({
       menu: [
