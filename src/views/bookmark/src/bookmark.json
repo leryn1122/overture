@@ -1,0 +1,52 @@
+{
+  "bookmark": [
+    {
+      "title": "GitHub",
+      "description": "GitHub",
+      "url": "https://github.com/leryn1122",
+      "logo": "https://oss.leryn.top/web/img/github-octocat.jpg"
+    },
+    {
+      "title": "Yuque",
+      "description": "Yuque Docs - My Wiki",
+      "url": "https://yuque.com/leryn/wiki",
+      "logo": "https://oss.leryn.top/web/img/yuque.png"
+    },
+    {
+      "title": "Web VSCode",
+      "description": "Web VSCode",
+      "url": "https://vscode.leryn.top",
+      "logo": "https://oss.leryn.top/web/img/coder-com.svg"
+    },
+    {
+      "title": "Harbor",
+      "description": "Docker Registry",
+      "url": "https://harbor.leryn.top",
+      "logo": "https://oss.leryn.top/web/img/harbor.svg"
+    },
+    {
+      "title": "OSS Console",
+      "description": "OSS Admin Console",
+      "url": "https://oss-adm.leryn.top",
+      "logo": "https://oss.leryn.top/web/img/minio.png"
+    },
+    {
+      "title": "Docker Hub",
+      "description": "Official Registry",
+      "url": "https://hub.docker.com/search?q=&type=logo",
+      "logo": "https://oss.leryn.top/web/img/docker.svg"
+    },
+    {
+      "title": "StackOverFlow",
+      "description": "StackOverFlow",
+      "url": "https://stackoverflow.com",
+      "logo": "https://oss.leryn.top/web/img/stackoverflow.svg"
+    },
+    {
+      "title": "Vector logo",
+      "description": "SVG logo for Free",
+      "url": "https://worldvectorlogo.com",
+      "logo": "https://oss.leryn.top/web/img/worldvectorlogo.svg"
+    }
+  ]
+}

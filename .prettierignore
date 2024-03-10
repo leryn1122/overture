@@ -1,0 +1,11 @@
+.vscode
+.idea
+node_modules
+
+*.sh
+*.md
+*.woff
+*.ttf
+*.svg
+
+dist
