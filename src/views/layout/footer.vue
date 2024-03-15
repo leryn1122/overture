@@ -7,17 +7,17 @@
 </template>
 
 <style lang="less" scoped>
-.footer {
-  --footer-padding: 0 20px;
-  --footer-height: 50px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+// .footer {
+//   --footer-padding: 0 20px;
+//   --footer-height: 50px;
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   text-align: center;
 
-  display: block;
-  zoom: 1;
-  margin: 0;
-  line-height: 40px;
-}
+//   display: block;
+//   zoom: 1;
+//   margin: 0;
+//   line-height: 40px;
+// }
 </style>

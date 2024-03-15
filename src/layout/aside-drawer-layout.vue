@@ -31,11 +31,11 @@ import { ref } from 'vue';
 const visible = ref<boolean>(true);
 </script>
 
-<style lang="less">
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
+<style lang="less" scoped>
+// .footer {
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   text-align: center;
+// }
 </style>
