@@ -35,7 +35,7 @@ watch(
           <RouterView />
         </template>
         <template #footer>
-          <Footer />
+          <!-- <Footer /> -->
         </template>
       </Layout>
     </AppProvider>
