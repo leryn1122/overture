@@ -76,7 +76,15 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       host: true,
       port: VITE_PORT,
       cors: true,
-      // proxy: createProxy(VITE_PROXY),
+      proxy: {
+        // TODO: createProxy
+        '/api': {
+          target: 'http://localhost:8080',
+          rewrite: (path) => {
+            return path.replace(/^\/api/, '');
+          },
+        },
+      },
       open: false,
     },
   };

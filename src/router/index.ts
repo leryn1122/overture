@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import { RouteRecordRaw, Router, createRouter, createWebHashHistory } from 'vue-router';
+import { RouteRecordRaw, Router, createRouter, createWebHistory } from 'vue-router';
 import { setupNavigationGuardChain } from './guard';
 
 export const convertModuleIntoRouterList = (modules: Record<string, unknown>) => {
@@ -25,7 +25,7 @@ export const allRoutes = (() => {
 
 export function createAppRouter(path: string, routes: Array<RouteRecordRaw>): Router {
   return createRouter({
-    history: createWebHashHistory(path),
+    history: createWebHistory(path),
     routes: routes,
     // strict: true,
     // scrollBehavior: () => ({ left: 0, top: 0, el: '#app', behavior: 'smooth' }),
@@ -37,8 +37,6 @@ export function registerApplicationRoutes(router: Router) {
     router.addRoute(r.name!, r);
   });
 }
-
-console.log(allRoutes);
 
 const routes = createAppRouter(import.meta.env.VITE_PUBLIC_PATH, allRoutes);
 

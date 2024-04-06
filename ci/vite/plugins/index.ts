@@ -3,23 +3,22 @@ import { ViteEnv } from '../../../src/vite-env';
 
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-// import legacy from '@vitejs/plugin-legacy';
 
+import { configMockPlugin } from './mock';
+
+// import legacy from '@vitejs/plugin-legacy';
 // import PurgeIcons from 'vite-plugin-purge-icons';
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
     // VITE_USE_IMAGEMIN,
-    // VITE_USE_MOCK,
+    VITE_USE_MOCK,
     // VITE_LEGACY,
     // VITE_BUILD_COMPRESS,
     // VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE,
   } = viteEnv;
 
-  const vitePlugins: (Plugin | Plugin[])[] = [
-    vue(),
-    vueJsx(),
-  ];
+  const vitePlugins: (Plugin | Plugin[])[] = [vue(), vueJsx()];
 
   // !isBuild && vitePlugins.push(configHmrPlugin());
 
@@ -36,7 +35,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   // vitePlugins.push(configWindiCssPlugin());
 
   // vite-plugin-mock
-  // VITE_USE_MOCK && vitePlugins.push(configMockPlugin(isBuild));
+  VITE_USE_MOCK && vitePlugins.push(configMockPlugin(isBuild));
 
   // vite-plugin-purge-icons
   // vitePlugins.push(PurgeIcons());
@@ -54,12 +53,10 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   if (isBuild) {
     //vite-plugin-imagemin
     // VITE_USE_IMAGEMIN && vitePlugins.push(configImageminPlugin());
-
     // rollup-plugin-gzip
     // vitePlugins.push(
     //   configCompressPlugin(VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE)
     // );
-
     // vite-plugin-pwa
     // vitePlugins.push(configPwaConfig(viteEnv));
   }

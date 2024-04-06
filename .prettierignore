@@ -2,10 +2,16 @@
 .idea
 node_modules
 
-*.sh
+*.ico
+*.jpg
+*.jpeg
+
 *.md
-*.woff
-*.ttf
+*.otf
+*.png
+*.sh
 *.svg
+*.ttf
+*.woff
 
 dist

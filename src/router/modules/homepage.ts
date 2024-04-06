@@ -4,11 +4,11 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/about',
     name: 'about',
-    component: () => import('../../components/HelloWorld.vue'),
+    component: () => import('@/views/about'),
     meta: {
-      title: 'About'
+      title: 'About',
+      disableLayout: true,
     },
-    children: [],
   },
 ];
 

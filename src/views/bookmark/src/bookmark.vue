@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import data from './bookmark.json';
+import { Bookmark } from './type';
 
-const bookmarks = data.bookmark;
+const bookmarks: Bookmark[] = data.bookmark;
 </script>
 
 <template>
@@ -12,15 +13,36 @@ const bookmarks = data.bookmark;
     ]"
   >
     <t-col v-for="bookmark in bookmarks" :key="bookmark" :span="4">
-      <t-card bordered>
-        <t-image :src="bookmark.logo" fit="fill" shape="round" :style="{ width: '120px', height: '120px' }" />
-        <div>
-          <h3>{{ bookmark.title }}</h3>
-          <p>{{ bookmark.description }}</p>
+      <t-card class="card" bordered>
+        <div class="card-container">
+          <t-image class="card-image" :src="bookmark.logo" fit="fill" shape="round" />
+          <div style="padding-left: 8px; max-width: 70%">
+            <h3 class="card-content">{{ bookmark.title }}</h3>
+            <p class="card-content">{{ bookmark.description }}</p>
+          </div>
         </div>
       </t-card>
     </t-col>
   </t-row>
 </template>
 
-<style lang="less"></style>
+<style lang="less">
+.card {
+  height: 108px;
+
+  &-container {
+    display: flex;
+  }
+
+  &-image {
+    height: 60px;
+    background-color: transparent;
+  }
+
+  &-content {
+    margin: 0px;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+</style>

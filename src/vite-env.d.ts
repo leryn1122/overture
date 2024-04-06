@@ -11,3 +11,11 @@ export declare interface ViteEnv {
   VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE?: boolean;
   VITE_USE_MICRO_APP_NAME?: string;
 }
+
+export type Recordable<T = any> = Record<string, T>;
+
+export type ReadonlyRecordable<T = any> = {
+  readonly [key: string]: T;
+};
+
+export type Nullable<T> = T | null;

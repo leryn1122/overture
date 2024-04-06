@@ -1,12 +1,10 @@
 <script lang="ts" setup>
 import { computed, defineComponent, onBeforeMount, onMounted, ref } from 'vue';
-import { LayoutType, MOBILE_DEVICE_WIDTH_THRESHOLD } from './layout';
-
-import AsideDrawerLayout from './aside-drawer-layout.vue';
-import TopMixedLayout from './top-mixed-layout.vue';
+import { useRouter } from 'vue-router';
+import { LayoutType, MOBILE_DEVICE_WIDTH_THRESHOLD, getLayoutComponent } from './layout';
+import Empty from './empty.vue';
 
 const screenWidth = ref<number>(window.innerWidth);
-
 const captureScreenWidth = () => {
   screenWidth.value = window.innerWidth;
 };
@@ -19,18 +17,23 @@ onBeforeMount(() => {
   window.removeEventListener('resize', captureScreenWidth);
 });
 
+const router = useRouter();
+function disableLayout(): boolean {
+  return router.currentRoute.value.meta.disableLayout as boolean;
+}
+
 // Determine whether it is PC or mobile device depending on the window screen width.
 const layout = computed<ReturnType<typeof defineComponent>>(() => {
-  let layoutType = ((width: number) => {
-    return width < MOBILE_DEVICE_WIDTH_THRESHOLD ? LayoutType.ASIDE_DRAW : LayoutType.TOP_MIXED;
-  })(screenWidth.value);
+  let layout: ReturnType<typeof defineComponent> = Empty;
 
-  switch (layoutType) {
-    case LayoutType.TOP_MIXED:
-      return TopMixedLayout;
-    case LayoutType.ASIDE_DRAW:
-      return AsideDrawerLayout;
+  if (!disableLayout()) {
+    let layoutType = ((width: number) => {
+      return width < MOBILE_DEVICE_WIDTH_THRESHOLD ? LayoutType.ASIDE_DRAW : LayoutType.TOP_MIXED;
+    })(screenWidth.value);
+
+    layout = getLayoutComponent(layoutType);
   }
+  return layout;
 });
 </script>
 

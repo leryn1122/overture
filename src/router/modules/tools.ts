@@ -5,7 +5,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/tools',
     name: 'tools',
     meta: {
-      title: 'Bookmark'
+      title: 'Bookmark',
     },
     children: [
       {
@@ -13,7 +13,15 @@ const routes: Array<RouteRecordRaw> = [
         name: 'byte-conversion',
         component: () => import('@/views/tools/byte-conversion'),
         meta: {
-          title: 'Byte Conversion'
+          title: 'Byte Conversion',
+        },
+      },
+      {
+        path: '/tools/cron-expression',
+        name: 'byte-conversion',
+        component: () => import('@/views/tools/cron-expression'),
+        meta: {
+          title: 'Cron Expression',
         },
       },
     ],

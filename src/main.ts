@@ -5,8 +5,13 @@ import App from './App.vue';
 import { initApplication } from './init-application';
 
 import setupRouter from '@/router';
+import setupStore from '@/store';
 
-const main = async () => {
+if (import.meta.env.DEV) {
+  import('tdesign-vue-next/dist/tdesign.css');
+}
+
+(async () => {
   const app = createApp(App);
 
   app.use(TDesign);
@@ -15,7 +20,7 @@ const main = async () => {
 
   setupRouter(app);
 
-  app.mount('#app');
-};
+  setupStore(app);
 
-main();
+  app.mount('#app');
+})();

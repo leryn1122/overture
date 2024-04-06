@@ -6,54 +6,48 @@ const routes: Array<RouteRecordRaw> = [
     name: 'bookmark',
     component: () => import('../../views/bookmark'),
     meta: {
-      title: 'Bookmark'
+      title: 'Bookmarks',
     },
-    children: [],
   },
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: () => import('../../components/HelloWorld.vue'),
+    component: () => import('@/components/daylight-toggler-button'),
     meta: {
-      title: 'Dashboard'
+      title: 'Dashboard',
     },
-    children: [],
   },
   {
     path: '/appstore',
     name: 'appstore',
     component: () => import('../../components/HelloWorld.vue'),
     meta: {
-      title: 'App Store'
+      title: 'App Store',
     },
-    children: [],
   },
   {
     path: '/deployment',
     name: 'deployment',
     component: () => import('../../components/HelloWorld.vue'),
     meta: {
-      title: 'Deployment'
+      title: 'Deployment',
     },
-    children: [],
   },
-    {
+  {
     path: '/message-box',
     name: 'message-box',
     component: () => import('../../components/HelloWorld.vue'),
     meta: {
-      title: 'Mail'
+      title: 'Mail',
     },
-    children: [],
   },
   {
     path: '/user-center',
     name: 'user-center',
     component: () => import('../../components/HelloWorld.vue'),
     meta: {
-      title: 'User Center'
+      title: 'User Center',
     },
-    children: [],
   },
 ];
 
