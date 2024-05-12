@@ -28,6 +28,7 @@ const { title, content } = about_json;
 
 .content-container {
   display: flex;
+  width: 256px;
   text-align: center;
   justify-content: center;
   padding-top: 120px;
@@ -45,13 +46,13 @@ const { title, content } = about_json;
   background-image: url('@/assets/background/left-background.png');
   background-color: var(--td-bg-color-container);
   background-position: left;
-  max-width: 30%;
+  max-width: 10%;
 }
 
 .right {
   background-image: url('@/assets/background/right-background.png');
   background-color: var(--td-bg-color-container);
   background-position: right;
-  max-width: 30%;
+  max-width: 10%;
 }
 </style>

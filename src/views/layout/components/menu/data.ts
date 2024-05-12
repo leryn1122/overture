@@ -33,7 +33,7 @@ export const data: Menu[] = [
   },
   {
     name: 'User Center',
-    key: 'user-center',
+    key: 'usercenter',
     icon: 'user-circle',
     path: '',
   },

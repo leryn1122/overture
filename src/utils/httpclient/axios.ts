@@ -29,12 +29,10 @@ export class HttpClient {
     options?: Partial<RequestOptions>,
   ): Promise<AxiosResponse<HttpResult<T>, any>> {
     let _config: AxiosRequestConfig = deepClone(config);
-    _config = Object.assign({}, _config, this.options, options) as AxiosRequestConfig;
-    console.log('_config', options);
+    _config = Object.assign({}, _config, this.options, options);
     if (_config.headers?.['Content-Type'] === ContentTypeEnum.FORM_URLENCODED) {
       _config.data = JSON.stringify(deepClone(_config.data));
     }
-
     return await this.getInstance().request<T, AxiosResponse<HttpResult<T>>>(_config);
   }
 

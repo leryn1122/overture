@@ -6,7 +6,7 @@
         <div class="login-title">
           <div class="login-title-welcome">Welcome to</div>
           <div class="login-title-name">
-            {{ businessModule }}
+            {{ module }}
           </div>
         </div>
         <t-input
@@ -15,6 +15,8 @@
           clearable
           size="medium"
           placeholder="Username / Email Address"
+          :status="inputStatus(usernameValidated)"
+          @blur="validateUsername"
           @enter="onEnterLoginForm"
         />
         <t-input
@@ -24,6 +26,8 @@
           size="medium"
           type="password"
           placeholder="Password"
+          :status="inputStatus(passwordValidated)"
+          @blur="validatePassword"
           @enter="onEnterLoginForm"
         />
         <div class="login-forgetpassord">
@@ -36,7 +40,7 @@
           </t-tooltip>
         </div>
         <t-button class="login-button" variant="base" @click="onClickLoginButton">Sign in</t-button>
-        <div class="login-noaccount">Don't have an account? <a href="">Sign up now</a></div>
+        <div class="login-noaccount">Don't have an account? <a href="/signup">Sign up now</a></div>
       </div>
     </t-content>
     <t-aside class="right" />
@@ -45,40 +49,56 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
 import { ButtonProps, InputProps, InputValue, MessagePlugin } from 'tdesign-vue-next';
 import { InfoCircleIcon } from 'tdesign-icons-vue-next';
 import { useUserStore } from '@/store/modules/user';
 import { Nullable } from '@/vite-env';
 
 import { LoginForm } from './login';
+import { throttle } from 'lodash';
+import { useRouter } from 'vue-router';
 
-const router = useRouter();
 const userStore = useUserStore();
+const router = useRouter();
 
-const businessModule = ref<string>('Customer Center');
+const module = getLoginModuleFromQuery() || 'Customer Center';
 
 const loginForm = ref<LoginForm>({
   username: '',
   password: '',
 });
 
-const login = () => {
-  // MessagePlugin.error({ content: '用户表示操作引起严重的后果', duration: 1000 });
-  // const redirect = getRedirectFromQuery();
-  // userStore.login({ ...loginForm.value, redirect: redirect! });
-  userStore.login({ ...loginForm.value });
+const passwordValidated = ref<boolean>(true);
+const usernameValidated = ref<boolean>(true);
 
-  // if (redirect) {
-  //   if (redirect!.startsWith('/')) {
-  //     router.push(redirect!);
-  //   } else {
-  //     window.location.href = redirect!;
-  //   }
-  // } else {
-  //   router.push('/');
-  // }
-  return {};
+async function login() {
+  if (!usernameValidated.value || loginForm.value.username.length == 0) {
+    MessagePlugin.error({ content: 'Please check the username.', duration: 1500 });
+    return;
+  }
+  if (!passwordValidated.value || loginForm.value.password.length == 0) {
+    MessagePlugin.error({ content: 'Please check the password.', duration: 1500 });
+    return;
+  }
+
+  const redirect = getRedirectFromQuery();
+  // userStore.login({ ...loginForm.value, redirect: redirect! });
+  const userInfo = await userStore.login({ ...loginForm.value, redirect: redirect! });
+  if (userInfo == null) {
+    MessagePlugin.error({ content: 'Login failed.', duration: 1500 });
+    return;
+  }
+
+  if (redirect) {
+    if (redirect!.startsWith('/')) {
+      router.push(redirect!);
+    } else {
+      window.location.href = redirect!;
+    }
+  } else {
+    router.push('/');
+  }
+  return;
 };
 
 function getRedirectFromQuery(): Nullable<string> {
@@ -87,13 +107,31 @@ function getRedirectFromQuery(): Nullable<string> {
   return redirectTarget;
 }
 
-const onEnterLoginForm: InputProps['onEnter'] = (_: InputValue) => {
-  login();
-};
+function getLoginModuleFromQuery(): Nullable<string> {
+  const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
+  const redirectTarget = params['module'];
+  return redirectTarget;
+}
 
-const onClickLoginButton: ButtonProps['onClick'] = () => {
+const onEnterLoginForm: InputProps['onEnter'] = throttle((_: InputValue) => {
   login();
-};
+}, 2000);
+
+const onClickLoginButton: ButtonProps['onClick'] = throttle(() => {
+  login();
+}, 2000);
+
+const validateUsername: InputProps['onBlur'] = (value: InputValue, context: { e: FocusEvent; }) => {
+  usernameValidated.value = (value.toString().length > 0);
+}
+
+const validatePassword: InputProps['onBlur'] = (value: InputValue, context: { e: FocusEvent; }) => {
+  passwordValidated.value = (value.toString().length > 0);
+}
+
+function inputStatus(enabled: boolean): string {
+  return enabled ? "default" : "error";
+}
 </script>
 
 <style lang="less">

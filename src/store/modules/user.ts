@@ -56,14 +56,16 @@ export const useUserStore = defineStore({
     },
     async login(params: LoginRequest & Partial<{ redirect: string }>): Promise<UserInfo | null> {
       const loginReponse = await doLogin(params);
-      const { id, refreshToken, accessToken } = loginReponse;
+      const { userId, username, refreshToken, accessToken } = loginReponse;
 
       this.setRefreshToken(refreshToken);
       this.setAccessToken(accessToken);
 
-      const getUserInfoResponse = await doGetUserInfo({ id });
-
-      return {};
+      const userInfo = await doGetUserInfo({ userId }).catch(e => { return null; });
+      if (userInfo == null) {
+        return null;
+      }
+      return userInfo;
     },
     async doRefreshToken() {
       const refreshTokenResponse = await doRefreshToken({});

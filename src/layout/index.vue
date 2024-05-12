@@ -3,11 +3,14 @@ import { computed, defineComponent, onBeforeMount, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { LayoutType, MOBILE_DEVICE_WIDTH_THRESHOLD, getLayoutComponent } from './layout';
 import Empty from './empty.vue';
+import { debounce } from 'lodash';
 
 const screenWidth = ref<number>(window.innerWidth);
-const captureScreenWidth = () => {
+
+const captureScreenWidth = debounce(() => {
   screenWidth.value = window.innerWidth;
-};
+  console.log(screenWidth.value);
+}, 100);
 
 onMounted(() => {
   window.addEventListener('resize', captureScreenWidth);

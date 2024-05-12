@@ -28,7 +28,7 @@ export function createAppRouter(path: string, routes: Array<RouteRecordRaw>): Ro
     history: createWebHistory(path),
     routes: routes,
     // strict: true,
-    // scrollBehavior: () => ({ left: 0, top: 0, el: '#app', behavior: 'smooth' }),
+    scrollBehavior: () => ({ left: 0, top: 0, el: '#app', behavior: 'smooth' }),
   });
 }
 

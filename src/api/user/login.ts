@@ -8,18 +8,18 @@ export type LoginRequest = {
 };
 
 export type LoginReponse = {
-  id: string;
+  userId: string;
   username: string;
   refreshToken: string;
   accessToken: string;
 };
 
 export type GetUserInfoRequest = {
-  id: string;
+  userId: string;
 };
 
 export type GetUserInfoResponse = {
-  id: string;
+  userId: string;
   username: string;
   roles: string[];
 };
@@ -35,23 +35,14 @@ export type RefreshTokenResponse = {
   refreshToken: string;
 };
 
-export const doLogin = (request: LoginRequest): LoginReponse => {
-  httpClient.post('/api/login');
-
-  return {
-    id: '1',
-    username: 'admin',
-    refreshToken: 'refresh-token-123',
-    accessToken: 'access-token-123',
-  } as LoginReponse;
+export const doLogin = async (request: LoginRequest): Promise<LoginReponse> => {
+  let response = await httpClient.post<LoginRequest, LoginReponse>('/api/login', request);
+  return response.data!;
 };
 
-export const doGetUserInfo = (request: GetUserInfoRequest): GetUserInfoResponse => {
-  return {
-    id: '1',
-    username: 'admin',
-    roles: [],
-  } as GetUserInfoResponse;
+export const doGetUserInfo = async (request: GetUserInfoRequest): Promise<GetUserInfoResponse> => {
+  let response = await httpClient.get<GetUserInfoResponse>('/api/userInfo');
+  return response.data!;
 };
 
 export const doLogout = (request: LogoutRequest): LogoutResponse => {
@@ -72,7 +63,7 @@ export const doRefreshToken = (request: RefreshTokenRequest): RefreshTokenRespon
     } as RequestOptions,
   );
   return {
-    accessToken: 'access-token-123',
-    refreshToken: 'refresh-token-123',
+    accessToken: 'CC402B37-0609-8498-6E18-CE03CEB8A017',
+    refreshToken: '1BBAD766-4024-5574-439B-D7EB5A9BFEE0',
   } as RefreshTokenResponse;
 };

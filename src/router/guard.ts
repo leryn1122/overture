@@ -1,3 +1,4 @@
+import { MessagePlugin } from 'tdesign-vue-next';
 import { RouteLocationNormalized, Router } from 'vue-router';
 
 export interface RecordableNavigationGuard {
@@ -25,6 +26,7 @@ export class NavigationGuardChain {
 /// The order of router guards is of great significance.
 export function setupNavigationGuardChain(): NavigationGuardChain {
   return new NavigationGuardChain()
+    .addGuard(createAuthGuard())
     .addGuard(createBasicGuard())
     .addGuard(createPageGuard())
     .addGuard(createPageLoadingGuard())
@@ -35,16 +37,40 @@ export function setupNavigationGuardChain(): NavigationGuardChain {
     .addGuard(createPermissionGuard())
     .addGuard(createParamMenuGuard())
     .addGuard(createStateGuard())
-    .addGuard(createTitleGuard());
 }
 
-export function createBasicGuard(): RecordableNavigationGuard {
+function createAuthGuard(): RecordableNavigationGuard {
+  return {
+    id: 'AuthGuard',
+    guardWith(router) {
+      router.beforeEach((to, from) => {
+        if (!router.hasRoute(to.path)) {
+          // router.push("/404");
+          console.log("path", to.path);
+          console.log('/404');
+        }
+
+        if (to.meta.auth) {
+          if (localStorage.getItem('access-token') != null) {
+            
+          } else {
+            router.push('/login?redirect=' + to.path);
+            return false;
+          }
+        }
+        return true;
+      })
+    }
+  }
+}
+
+function createBasicGuard(): RecordableNavigationGuard {
   return {
     id: 'BasicGuard',
     guardWith(router) {
       router.beforeEach((to) => {
         if (to.meta.title) {
-          document.title = to.meta.title as string;
+          document.title = (to.meta.title as string) + ' | Overture';
         }
         return true;
       });
@@ -52,7 +78,7 @@ export function createBasicGuard(): RecordableNavigationGuard {
   };
 }
 
-export function createPageGuard(): RecordableNavigationGuard {
+function createPageGuard(): RecordableNavigationGuard {
   return {
     id: 'PageGuard',
     guardWith(router) {
@@ -71,7 +97,7 @@ export function createPageGuard(): RecordableNavigationGuard {
 }
 
 //
-export function createPageLoadingGuard(): RecordableNavigationGuard {
+function createPageLoadingGuard(): RecordableNavigationGuard {
   return {
     id: 'PageLoadingGuard',
     guardWith(_router) {},
@@ -79,7 +105,7 @@ export function createPageLoadingGuard(): RecordableNavigationGuard {
 }
 
 //
-export function createHttpGuard(): RecordableNavigationGuard {
+function createHttpGuard(): RecordableNavigationGuard {
   return {
     id: 'HttpGuard',
     guardWith(_router) {},
@@ -87,9 +113,9 @@ export function createHttpGuard(): RecordableNavigationGuard {
 }
 
 //
-export function createScrollGuard(): RecordableNavigationGuard {
+function createScrollGuard(): RecordableNavigationGuard {
   return {
-    id: '',
+    id: 'ScrollGuard',
     guardWith(router) {
       const isHash = (href: string) => {
         return /^#/.test(href);
@@ -105,55 +131,46 @@ export function createScrollGuard(): RecordableNavigationGuard {
 }
 
 //
-export function createMessageGuard(): RecordableNavigationGuard {
+function createMessageGuard(): RecordableNavigationGuard {
   return {
-    id: '',
-    guardWith(_router) {},
-  };
-}
-
-//
-export function createProgressGuard(): RecordableNavigationGuard {
-  return {
-    id: '',
-    guardWith(_router) {},
-  };
-}
-
-//
-export function createPermissionGuard(): RecordableNavigationGuard {
-  return {
-    id: '',
-    guardWith(_router) {},
-  };
-}
-//
-export function createParamMenuGuard(): RecordableNavigationGuard {
-  return {
-    id: '',
-    guardWith(_router) {},
-  };
-}
-
-//
-export function createStateGuard(): RecordableNavigationGuard {
-  return {
-    id: '',
-    guardWith(_router) {},
-  };
-}
-
-export function createTitleGuard(): RecordableNavigationGuard {
-  return {
-    id: '',
+    id: 'MessageGuard',
     guardWith(router) {
-      router.beforeEach((to) => {
-        if (to.meta.title) {
-          document.title = (to.meta.title as string) + ' | Overture';
-        }
+      router.beforeEach((_to) => {
+        MessagePlugin.closeAll();
         return true;
       });
     },
+  };
+}
+
+//
+function createProgressGuard(): RecordableNavigationGuard {
+  return {
+    id: '',
+    guardWith(_router) {},
+  };
+}
+
+//
+function createPermissionGuard(): RecordableNavigationGuard {
+  return {
+    id: '',
+    guardWith(_router) {},
+  };
+}
+//
+function createParamMenuGuard(): RecordableNavigationGuard {
+  return {
+    id: '',
+    guardWith(_router) {},
+  };
+}
+
+//
+function createStateGuard(): RecordableNavigationGuard {
+  return {
+    id: '',
+    guardWith(_router) {},
   };
 }
 

@@ -15,6 +15,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/components/daylight-toggler-button'),
     meta: {
       title: 'Dashboard',
+      auth: [
+
+      ],
     },
   },
   {
@@ -23,6 +26,9 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../../components/HelloWorld.vue'),
     meta: {
       title: 'App Store',
+      auth: [
+
+      ],
     },
   },
   {
@@ -31,22 +37,31 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../../components/HelloWorld.vue'),
     meta: {
       title: 'Deployment',
+      auth: [
+
+      ],
     },
   },
   {
-    path: '/message-box',
+    path: '/msgbox',
     name: 'message-box',
     component: () => import('../../components/HelloWorld.vue'),
     meta: {
       title: 'Mail',
+      auth: [
+
+      ],
     },
   },
   {
-    path: '/user-center',
-    name: 'user-center',
+    path: '/usercenter',
+    name: 'usercenter',
     component: () => import('../../components/HelloWorld.vue'),
     meta: {
       title: 'User Center',
+      auth: [
+
+      ],
     },
   },
 ];
