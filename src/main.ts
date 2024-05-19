@@ -6,6 +6,7 @@ import { initApplication } from './init-application';
 
 import setupRouter from '@/router';
 import setupStore from '@/store';
+import addAuthenticationDirective from './directive';
 
 if (import.meta.env.DEV) {
   import('tdesign-vue-next/dist/tdesign.css');
@@ -21,6 +22,8 @@ if (import.meta.env.DEV) {
   setupRouter(app);
 
   setupStore(app);
+
+  addAuthenticationDirective(app);
 
   app.mount('#app');
 })();

@@ -27,7 +27,6 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       title: 'App Store',
       auth: [
-
       ],
     },
   },

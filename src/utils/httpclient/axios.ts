@@ -69,11 +69,17 @@ export class HttpClient {
     );
   }
 
-  get<T = any>(
+  get<D = string | Record<string, string>, T = any>(
     url: RequestURL,
+    data?: D,
     config?: AxiosRequestConfig,
     options?: Partial<RequestOptions>,
   ): Promise<HttpResult<T>> {
+    if (data) {
+      // @ts-ignore
+      url = url + '?' + new URLSearchParams(data as D).toString();
+    }
+
     return this.unwrap(
       this.sendRequest(
         {
@@ -148,8 +154,12 @@ export class HttpClient {
   }
 
   public useInterceptors(config: InterceptorConfig): void {
-    const { requestInterceptors, requestInterceptorsCatcher, responseInterceptors, responseInterceptorsCatcher } =
-      config;
+    const {
+      requestInterceptors,
+      requestInterceptorsCatcher,
+      responseInterceptors,
+      responseInterceptorsCatcher
+    } = config;
 
     this.getInstance().interceptors.request.use(
       (config: any) => {

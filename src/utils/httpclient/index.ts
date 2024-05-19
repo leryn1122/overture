@@ -32,9 +32,8 @@ function requestInterceptors<T = any>(
 ): AxiosRequestConfig<T> | Promise<AxiosRequestConfig<T>> {
   const accessToken = useUserStore().getAccessToken;
   if (accessToken) {
-    config.headers!.Authorization = `Bearer ${accessToken}`;
+    config.headers!['X-Access-Token'] = accessToken;
   }
-
   return config;
 }
 
@@ -46,19 +45,18 @@ async function responseInterceptors<T = any>(
   response: AxiosResponse<HttpResult<T>>,
 ): Promise<AxiosResponse<HttpResult<T>>> {
   // @ts-ignore
-  if (response.headers?.has('Authorization')) {
+  if (response.headers?.has('X-Access-Token')) {
     const accessToken = response.headers!.getAuthorization!.toString().replace('Bearer ', '');
     useUserStore().setAccessToken(accessToken);
   }
 
   // @ts-ignore
-  if (response.headers?.has('refresh-token')) {
+  if (response.headers?.has('X-Refresh-Token')) {
     // @ts-ignore
-    const refreshToken = response.headers!.get('refresh-token');
+    const refreshToken = response.headers!.get('X-Refresh-Token');
     useUserStore().setRefreshToken(refreshToken);
   }
 
-  console.log(response.config);
   if (
     response.data.code === HttpStatus.Unauthorized &&
     !isRefreshTokenRequest(response.config as CreateHttpClientOptions)
@@ -66,7 +64,7 @@ async function responseInterceptors<T = any>(
     await useUserStore().doRefreshToken();
     const config = response.config;
     const accessToken = useUserStore().getAccessToken;
-    config.headers.Authorization = `Bearer ${accessToken}`;
+    config.headers!['X-Access-Token'] = accessToken;;
     const anotherResponse = await httpClient.request(config.url!, config.method, config.data, config);
     return anotherResponse;
   }

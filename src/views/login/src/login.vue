@@ -14,7 +14,7 @@
           v-model="loginForm.username"
           clearable
           size="medium"
-          placeholder="Username / Email Address"
+          placeholder="Username"
           :status="inputStatus(usernameValidated)"
           @blur="validateUsername"
           @enter="onEnterLoginForm"
@@ -39,7 +39,7 @@
             </template>
           </t-tooltip>
         </div>
-        <t-button class="login-button" variant="base" @click="onClickLoginButton">Sign in</t-button>
+        <t-button class="login-button" variant="base" @click="onClickLoginButton">Login in</t-button>
         <div class="login-noaccount">Don't have an account? <a href="/signup">Sign up now</a></div>
       </div>
     </t-content>
@@ -50,18 +50,19 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { ButtonProps, InputProps, InputValue, MessagePlugin } from 'tdesign-vue-next';
+import { useRouter } from 'vue-router';
 import { InfoCircleIcon } from 'tdesign-icons-vue-next';
 import { useUserStore } from '@/store/modules/user';
 import { Nullable } from '@/vite-env';
 
-import { LoginForm } from './login';
 import { throttle } from 'lodash';
-import { useRouter } from 'vue-router';
+import { LoginForm } from './login';
+import AES from 'crypto-js/AES';
 
 const userStore = useUserStore();
 const router = useRouter();
 
-const module = getLoginModuleFromQuery() || 'Customer Center';
+const module = extractLoginModuleFromQuery() || 'Customer Center';
 
 const loginForm = ref<LoginForm>({
   username: '',
@@ -81,9 +82,17 @@ async function login() {
     return;
   }
 
-  const redirect = getRedirectFromQuery();
-  // userStore.login({ ...loginForm.value, redirect: redirect! });
-  const userInfo = await userStore.login({ ...loginForm.value, redirect: redirect! });
+  const redirect = extractRedirectFromQuery();
+
+  const password = AES.encrypt(loginForm.value.password, 
+  'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALyIzVdsxPcI4MVnwGISNWyn5XLmPOW/' +
+  'fr+S+28q/oX+alHLIPmpHxZ+NFmrynipp+zFEVs4eYt/MYqZ+sU1RdECAwEAAQ==');
+
+  const userInfo = await userStore.login({
+    username: loginForm.value.username,
+    password: password.toString(),
+    redirect: redirect!
+  });
   if (userInfo == null) {
     MessagePlugin.error({ content: 'Login failed.', duration: 1500 });
     return;
@@ -101,15 +110,15 @@ async function login() {
   return;
 };
 
-function getRedirectFromQuery(): Nullable<string> {
+function extractRedirectFromQuery(): Nullable<string> {
   const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
   const redirectTarget = params['redirect'];
   return redirectTarget;
 }
 
-function getLoginModuleFromQuery(): Nullable<string> {
+function extractLoginModuleFromQuery(): Nullable<string> {
   const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
-  const redirectTarget = params['module'];
+  const redirectTarget = params['m'];
   return redirectTarget;
 }
 

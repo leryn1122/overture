@@ -1,4 +1,4 @@
-import { GetUserInfoResponse, LoginRequest, doGetUserInfo, doLogin, doLogout, doRefreshToken } from '@/api/user/login';
+import { LoginRequest, doGetUserInfo, doLogin, doLogout, doRefreshToken } from '@/api/user/login';
 import { Nullable } from '@/vite-env';
 import { defineStore } from 'pinia';
 import { useRouter } from 'vue-router';
@@ -56,15 +56,16 @@ export const useUserStore = defineStore({
     },
     async login(params: LoginRequest & Partial<{ redirect: string }>): Promise<UserInfo | null> {
       const loginReponse = await doLogin(params);
-      const { userId, username, refreshToken, accessToken } = loginReponse;
+      const { refreshToken, accessToken } = loginReponse;
 
       this.setRefreshToken(refreshToken);
       this.setAccessToken(accessToken);
 
-      const userInfo = await doGetUserInfo({ userId }).catch(e => { return null; });
+      const userInfo = await doGetUserInfo().catch(e => { return null; });
       if (userInfo == null) {
         return null;
       }
+      this.setUserInfo(userInfo);
       return userInfo;
     },
     async doRefreshToken() {
@@ -73,9 +74,8 @@ export const useUserStore = defineStore({
       this.setRefreshToken(refreshTokenResponse.refreshToken);
     },
     async logout(goLogin: boolean = false) {
-      await doLogout({});
-      this.setRefreshToken(undefined);
-      this.setAccessToken(undefined);
+      await doLogout();
+      this.resetUserInfo();
       goLogin && useRouter().push('/login');
     },
   },

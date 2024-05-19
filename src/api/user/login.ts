@@ -15,7 +15,6 @@ export type LoginReponse = {
 };
 
 export type GetUserInfoRequest = {
-  userId: string;
 };
 
 export type GetUserInfoResponse = {
@@ -40,13 +39,19 @@ export const doLogin = async (request: LoginRequest): Promise<LoginReponse> => {
   return response.data!;
 };
 
-export const doGetUserInfo = async (request: GetUserInfoRequest): Promise<GetUserInfoResponse> => {
+export const doGetUserInfo = async (): Promise<GetUserInfoResponse> => {
   let response = await httpClient.get<GetUserInfoResponse>('/api/userInfo');
   return response.data!;
 };
 
-export const doLogout = (request: LogoutRequest): LogoutResponse => {
-  return {} as LoginReponse;
+export const doLogout = async (): Promise<LogoutResponse> => {
+  let response = await httpClient.get<LogoutResponse>('/api/logout', undefined, {
+    headers: {
+      "X-Access-Token": useUserStore().getAccessToken,
+      "X-Refresh-Token": useUserStore().getRefreshToken,
+    },
+  }, {});
+  return response.data!;
 };
 
 export const doRefreshToken = (request: RefreshTokenRequest): RefreshTokenResponse => {
@@ -55,7 +60,7 @@ export const doRefreshToken = (request: RefreshTokenRequest): RefreshTokenRespon
     {} as RefreshTokenRequest,
     {
       headers: {
-        Authorization: `Bearer: ${useUserStore().getRefreshToken}`,
+        "X-Refresh-Token": useUserStore().getRefreshToken,
       },
     },
     {

@@ -9,7 +9,6 @@ const screenWidth = ref<number>(window.innerWidth);
 
 const captureScreenWidth = debounce(() => {
   screenWidth.value = window.innerWidth;
-  console.log(screenWidth.value);
 }, 100);
 
 onMounted(() => {
