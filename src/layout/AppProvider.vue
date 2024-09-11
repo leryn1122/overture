@@ -13,7 +13,6 @@ export default defineComponent({
   inheritAttrs: false,
   props,
   setup(props, { slots }) {
-    props.prefixCls;
     return () => slots.default?.();
   },
 });

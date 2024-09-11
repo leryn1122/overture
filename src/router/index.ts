@@ -13,7 +13,7 @@ export const convertModuleIntoRouterList = (modules: Record<string, unknown>) =>
   return routerList;
 };
 
-export const allRoutes = (() => {
+export const allRouteRecords = (() => {
   const homepages = import.meta.glob('./modules/homepage.ts', { eager: true });
 
   const bizPages = import.meta.glob('./modules/!(homepage).ts', { eager: true });
@@ -33,12 +33,12 @@ export function createAppRouter(path: string, routes: Array<RouteRecordRaw>): Ro
 }
 
 export function registerApplicationRoutes(router: Router) {
-  allRoutes.forEach((r) => {
+  allRouteRecords.forEach((r) => {
     router.addRoute(r.name!, r);
   });
 }
 
-const routes = createAppRouter(import.meta.env.VITE_PUBLIC_PATH, allRoutes);
+const routes = createAppRouter(import.meta.env.VITE_PUBLIC_PATH, allRouteRecords);
 
 export function setupRouter(app: ReturnType<typeof createApp>): ReturnType<typeof createApp> {
   setupNavigationGuardChain().register(routes);

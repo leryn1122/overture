@@ -7,7 +7,7 @@ import { ContentTypeEnum, HttpStatus } from './http';
 import useUserStore from '@/store/modules/user';
 
 export function createHttpClient(options?: Partial<CreateHttpClientOptions>): HttpClient {
-  let opt: CreateHttpClientOptions = deepMerge(
+  const opt: CreateHttpClientOptions = deepMerge(
     {
       authenticationScheme: '',
       timeout: 10 * 1000,
@@ -63,10 +63,8 @@ async function responseInterceptors<T = any>(
   ) {
     await useUserStore().doRefreshToken();
     const config = response.config;
-    const accessToken = useUserStore().getAccessToken;
-    config.headers!['X-Access-Token'] = accessToken;;
-    const anotherResponse = await httpClient.request(config.url!, config.method, config.data, config);
-    return anotherResponse;
+    config.headers!['X-Access-Token'] = useUserStore().getAccessToken;
+    return await httpClient.request(config.url!, config.method, config.data, config);
   }
 
   return response;

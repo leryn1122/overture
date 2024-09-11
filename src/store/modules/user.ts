@@ -61,7 +61,9 @@ export const useUserStore = defineStore({
       this.setRefreshToken(refreshToken);
       this.setAccessToken(accessToken);
 
-      const userInfo = await doGetUserInfo().catch(e => { return null; });
+      const userInfo = await doGetUserInfo().catch((e) => {
+        return null;
+      });
       if (userInfo == null) {
         return null;
       }

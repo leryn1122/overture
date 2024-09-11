@@ -40,8 +40,7 @@ const isMoved = ref<boolean>(false);
 const isClicked = ref<boolean>(false);
 
 const $ = (classname: string) => {
-  let elements = Array.from(document.getElementsByClassName(classname) as HTMLCollectionOf<HTMLElement>);
-  return elements;
+  return Array.from(document.getElementsByClassName(classname) as HTMLCollectionOf<HTMLElement>);
 };
 
 const onClickButton = (_event: MouseEvent) => {
@@ -347,7 +346,7 @@ onUnmounted(() => {
 .moon {
   position: absolute;
   background-color: rgba(150, 160, 180, 1);
-  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   transition: 0.5s;
   opacity: 0;
@@ -474,7 +473,7 @@ onUnmounted(() => {
 
 .cloud-shadow {
   position: absolute;
-  right: 0px;
+  right: 0;
   bottom: 25px;
   opacity: 0.5;
   z-index: -3;

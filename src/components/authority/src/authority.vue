@@ -1,17 +1,18 @@
 <template>
-  <slot v-if="showSlot" :required="permissions" />
+  <slot v-if="showSlot" :required="permissions"></slot>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" name="my-authority" setup>
 import { computed } from 'vue';
+import { Permission } from './type';
 
 const props = defineProps({
   permission: {
-    type: Array<string>,
+    type: Array<Permission>,
   },
 });
 
-const permissions: string[] = [];
+const permissions: Permission[] = [];
 
 const showSlot = computed(() => {
   if (!props.permission) {

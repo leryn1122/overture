@@ -13,7 +13,7 @@ const bookmarks: Bookmark[] = data.bookmark;
     ]"
   >
     <t-col v-for="bookmark in bookmarks" :key="bookmark" :span="4">
-      <t-card class="card" bordered>
+      <t-card class="card" :bordered="true">
         <div class="card-container">
           <t-image class="card-image" :src="bookmark.logo" fit="fill" shape="round" />
           <div style="padding-left: 8px; max-width: 70%">
@@ -40,7 +40,7 @@ const bookmarks: Bookmark[] = data.bookmark;
   }
 
   &-content {
-    margin: 0px;
+    margin: 0;
     text-wrap: nowrap;
     text-overflow: ellipsis;
   }

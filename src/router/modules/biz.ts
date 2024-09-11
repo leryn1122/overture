@@ -4,7 +4,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/bookmark',
     name: 'bookmark',
-    component: () => import('../../views/bookmark'),
+    component: () => import('@/views/bookmark'),
     meta: {
       title: 'Bookmarks',
     },
@@ -15,52 +15,43 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/components/daylight-toggler-button'),
     meta: {
       title: 'Dashboard',
-      auth: [
-
-      ],
+      auth: [],
     },
   },
   {
     path: '/appstore',
     name: 'appstore',
-    component: () => import('../../components/HelloWorld.vue'),
+    component: () => import('@/components/HelloWorld.vue'),
     meta: {
       title: 'App Store',
-      auth: [
-      ],
+      auth: [],
     },
   },
   {
     path: '/deployment',
     name: 'deployment',
-    component: () => import('../../components/HelloWorld.vue'),
+    component: () => import('@/components/HelloWorld.vue'),
     meta: {
       title: 'Deployment',
-      auth: [
-
-      ],
+      auth: [],
     },
   },
   {
     path: '/msgbox',
     name: 'message-box',
-    component: () => import('../../components/HelloWorld.vue'),
+    component: () => import('@/components/HelloWorld.vue'),
     meta: {
       title: 'Mail',
-      auth: [
-
-      ],
+      auth: [],
     },
   },
   {
     path: '/usercenter',
     name: 'usercenter',
-    component: () => import('../../components/HelloWorld.vue'),
+    component: () => import('@/components/HelloWorld.vue'),
     meta: {
       title: 'User Center',
-      auth: [
-
-      ],
+      auth: [],
     },
   },
 ];

@@ -12,7 +12,7 @@
         <t-input
           class="login-input"
           v-model="loginForm.username"
-          clearable
+          :clearable="true"
           size="medium"
           placeholder="Username"
           :status="inputStatus(usernameValidated)"
@@ -22,7 +22,7 @@
         <t-input
           class="login-input"
           v-model="loginForm.password"
-          clearable
+          :clearable="true"
           size="medium"
           type="password"
           placeholder="Password"
@@ -84,14 +84,16 @@ async function login() {
 
   const redirect = extractRedirectFromQuery();
 
-  const password = AES.encrypt(loginForm.value.password, 
-  'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALyIzVdsxPcI4MVnwGISNWyn5XLmPOW/' +
-  'fr+S+28q/oX+alHLIPmpHxZ+NFmrynipp+zFEVs4eYt/MYqZ+sU1RdECAwEAAQ==');
+  const password = AES.encrypt(
+    loginForm.value.password,
+    'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALyIzVdsxPcI4MVnwGISNWyn5XLmPOW/' +
+      'fr+S+28q/oX+alHLIPmpHxZ+NFmrynipp+zFEVs4eYt/MYqZ+sU1RdECAwEAAQ==',
+  );
 
   const userInfo = await userStore.login({
     username: loginForm.value.username,
     password: password.toString(),
-    redirect: redirect!
+    redirect: redirect!,
   });
   if (userInfo == null) {
     MessagePlugin.error({ content: 'Login failed.', duration: 1500 });
@@ -108,18 +110,16 @@ async function login() {
     router.push('/');
   }
   return;
-};
+}
 
 function extractRedirectFromQuery(): Nullable<string> {
   const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
-  const redirectTarget = params['redirect'];
-  return redirectTarget;
+  return params['redirect'];
 }
 
 function extractLoginModuleFromQuery(): Nullable<string> {
   const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
-  const redirectTarget = params['m'];
-  return redirectTarget;
+  return params['m'];
 }
 
 const onEnterLoginForm: InputProps['onEnter'] = throttle((_: InputValue) => {
@@ -130,16 +130,16 @@ const onClickLoginButton: ButtonProps['onClick'] = throttle(() => {
   login();
 }, 2000);
 
-const validateUsername: InputProps['onBlur'] = (value: InputValue, context: { e: FocusEvent; }) => {
-  usernameValidated.value = (value.toString().length > 0);
-}
+const validateUsername: InputProps['onBlur'] = (value: InputValue, _context: { e: FocusEvent }) => {
+  usernameValidated.value = value.toString().length > 0;
+};
 
-const validatePassword: InputProps['onBlur'] = (value: InputValue, context: { e: FocusEvent; }) => {
-  passwordValidated.value = (value.toString().length > 0);
-}
+const validatePassword: InputProps['onBlur'] = (value: InputValue, _context: { e: FocusEvent }) => {
+  passwordValidated.value = value.toString().length > 0;
+};
 
 function inputStatus(enabled: boolean): string {
-  return enabled ? "default" : "error";
+  return enabled ? 'default' : 'error';
 }
 </script>
 

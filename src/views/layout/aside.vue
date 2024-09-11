@@ -1,5 +1,5 @@
 <template>
-  <LayoutMenu :collapsable="false"></LayoutMenu>
+  <LayoutMenu :collapsable="false" />
 </template>
 
 <script lang="ts" setup>

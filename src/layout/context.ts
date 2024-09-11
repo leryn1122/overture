@@ -1,19 +1,19 @@
+import { Menu } from './type';
+
 type AnyFunction<T> = (...args: any[]) => T;
 
 export interface ContextOptions {
   useDesign: (scope: string) => any;
-  useUserStore: () => Promise<any>;
-  getMenus: () => Promise<any>;
+  // useUserStore: () => Promise<any>;
+  getMenus: () => Promise<Menu[]> | Menu[];
 }
 
-export interface ContextOptions {}
+let context: ContextOptions;
 
-export let context: ContextOptions = {
-  useDesign: (_) => {},
-  useUserStore: async () => ({}),
-  getMenus: async () => ({}),
-};
+export async function prepareContext(functor: AnyFunction<any>) {
+  context = functor();
+}
 
-export const useContext = async (func: AnyFunction<any>) => {
-  context = func();
-};
+export function useContext(): ContextOptions {
+  return context;
+}

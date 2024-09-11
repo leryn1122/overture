@@ -51,7 +51,7 @@ const globalConfig: GlobalConfigProvider = merge(empty, enConfig, customConfig);
 @import url('@/styles/index.less');
 
 body {
-  margin: 0px;
+  margin: 0;
 }
 
 // .html {

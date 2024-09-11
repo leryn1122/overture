@@ -36,7 +36,7 @@ export function setupNavigationGuardChain(): NavigationGuardChain {
     .addGuard(createProgressGuard())
     .addGuard(createPermissionGuard())
     .addGuard(createParamMenuGuard())
-    .addGuard(createStateGuard())
+    .addGuard(createStateGuard());
 }
 
 function createAuthGuard(): RecordableNavigationGuard {
@@ -46,22 +46,21 @@ function createAuthGuard(): RecordableNavigationGuard {
       router.beforeEach((to, from) => {
         if (!router.hasRoute(to.path)) {
           // router.push("/404");
-          console.log("path", to.path);
+          console.log('path', to.path);
           console.log('/404');
         }
 
         if (to.meta.auth) {
           if (localStorage.getItem('access-token') != null) {
-            
           } else {
             router.push('/login?redirect=' + to.path);
             return false;
           }
         }
         return true;
-      })
-    }
-  }
+      });
+    },
+  };
 }
 
 function createBasicGuard(): RecordableNavigationGuard {

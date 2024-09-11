@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, defineComponent, onBeforeMount, onMounted, ref } from 'vue';
+import { computed, defineComponent, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { LayoutType, MOBILE_DEVICE_WIDTH_THRESHOLD, getLayoutComponent } from './layout';
 import Empty from './empty.vue';
@@ -15,7 +15,7 @@ onMounted(() => {
   window.addEventListener('resize', captureScreenWidth);
 });
 
-onBeforeMount(() => {
+onBeforeUnmount(() => {
   window.removeEventListener('resize', captureScreenWidth);
 });
 
@@ -29,8 +29,9 @@ const layout = computed<ReturnType<typeof defineComponent>>(() => {
   let layout: ReturnType<typeof defineComponent> = Empty;
 
   if (!disableLayout()) {
-    let layoutType = ((width: number) => {
+    const layoutType = ((width: number) => {
       return width < MOBILE_DEVICE_WIDTH_THRESHOLD ? LayoutType.ASIDE_DRAW : LayoutType.TOP_MIXED;
+      // return window.matchMedia('(max-width: 768px)').matches ? LayoutType.ASIDE_DRAW : LayoutType.TOP_MIXED;
     })(screenWidth.value);
 
     layout = getLayoutComponent(layoutType);
@@ -42,7 +43,7 @@ const layout = computed<ReturnType<typeof defineComponent>>(() => {
 <template>
   <component :is="layout" v-bind="layout">
     <template #[item]="data" v-for="item in Object.keys($slots)" :key="item">
-      <slot :name="item" v-bind="data || {}" />
+      <slot :name="item" v-bind="data || {}"></slot>
     </template>
   </component>
 </template>

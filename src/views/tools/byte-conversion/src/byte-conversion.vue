@@ -14,7 +14,12 @@
           class="unit"
         />
       </template>
-      <t-input v-model="inputSize" :status="isValidInput" clearable placeholder="Input the number / size of bytes" />
+      <t-input
+        v-model="inputSize"
+        :status="isValidInput"
+        :clearable="true"
+        placeholder="Input the number / size of bytes"
+      />
     </t-input-adornment>
   </t-space>
 
@@ -27,7 +32,12 @@
       :prepend="unit.unit"
       class="unit"
     >
-      <t-input :value="convertSize(inputSize, inputMultiplier, unit.multiplier)" placeholder="" disable readonly />
+      <t-input
+        :value="convertSize(inputSize, inputMultiplier, unit.multiplier)"
+        placeholder=""
+        disable
+        :readonly="true"
+      />
     </t-input-adornment>
   </div>
   <t-space direction="vertical">

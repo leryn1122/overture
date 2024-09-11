@@ -8,6 +8,7 @@ import { configMockPlugin } from './mock';
 
 // import legacy from '@vitejs/plugin-legacy';
 // import PurgeIcons from 'vite-plugin-purge-icons';
+import vueSetupExtend from 'unplugin-vue-setup-extend-plus/vite';
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
   const {
@@ -18,7 +19,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
     // VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE,
   } = viteEnv;
 
-  const vitePlugins: (Plugin | Plugin[])[] = [vue(), vueJsx()];
+  const vitePlugins: (Plugin | Plugin[])[] = [vue(), vueJsx(), vueSetupExtend()];
 
   // !isBuild && vitePlugins.push(configHmrPlugin());
 

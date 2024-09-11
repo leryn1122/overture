@@ -7,7 +7,7 @@ import { createStyleImportPlugin } from 'vite-plugin-style-import';
 
 export function configStyleImportPlugin(isBuild: boolean) {
   if (!isBuild) return [];
-  const styleImportPlugin = createStyleImportPlugin({
+  return createStyleImportPlugin({
     libs: [
       {
         libraryName: 'ant-design-vue',
@@ -18,5 +18,4 @@ export function configStyleImportPlugin(isBuild: boolean) {
       },
     ],
   });
-  return styleImportPlugin;
 }

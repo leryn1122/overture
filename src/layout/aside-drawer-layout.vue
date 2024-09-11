@@ -1,19 +1,19 @@
 <template>
   <t-layout v-bind="$attrs">
     <t-header>
-      <slot name="header" />
+      <slot name="header"></slot>
     </t-header>
     <t-content style="background-color: var(--td-bg-color-container)">
-      <slot name="main" />
+      <slot name="main"></slot>
     </t-content>
   </t-layout>
 
   <t-drawer
-    closeBtn
-    destroyOnClose
-    closeOnEscKeydown
+    :closeBtn="true"
+    :destroyOnClose="true"
+    :closeOnEscKeydown="true"
     :footer="false"
-    showOverlay
+    :showOverlay="false"
     placement="left"
     v-model:visible="visible"
     header="Navigation"

@@ -1,12 +1,12 @@
 <template>
   <t-layout>
-    <t-header>
-      <slot name="header" />
-    </t-header>
+    <t-aside class="aside-container">
+      <slot name="aside" />
+    </t-aside>
     <t-layout>
-      <t-aside class="aside-container">
-        <slot name="aside" />
-      </t-aside>
+      <t-header>
+        <slot name="header" />
+      </t-header>
       <t-content class="main-container" style="">
         <slot name="main" />
       </t-content>

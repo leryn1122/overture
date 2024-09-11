@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { context } from '@/layout/context';
+import { useContext } from '@/layout/context';
 import SearchKeyItem from './SearchKeyItem.vue';
 
-const { useDesign } = context;
+const { useDesign } = useContext();
 const { prefixCls } = useDesign('search-footer');
 </script>
 

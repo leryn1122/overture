@@ -9,7 +9,7 @@ import { AbortedRequestQueue } from './abort';
 export type RequestURL = string;
 
 export class HttpClient {
-  private axiosInstance: AxiosInstance;
+  private readonly axiosInstance: AxiosInstance;
   private readonly options: CreateHttpClientOptions;
   private abortedRequests: AbortedRequestQueue;
 
@@ -154,12 +154,8 @@ export class HttpClient {
   }
 
   public useInterceptors(config: InterceptorConfig): void {
-    const {
-      requestInterceptors,
-      requestInterceptorsCatcher,
-      responseInterceptors,
-      responseInterceptorsCatcher
-    } = config;
+    const { requestInterceptors, requestInterceptorsCatcher, responseInterceptors, responseInterceptorsCatcher } =
+      config;
 
     this.getInstance().interceptors.request.use(
       (config: any) => {

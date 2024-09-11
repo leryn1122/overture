@@ -14,7 +14,7 @@ const options = ref([
 </script>
 
 <template>
-  <t-dropdown :options="options" hideAfterItemClick>
+  <t-dropdown :options="options" :hideAfterItemClick="true">
     <t-icon name="user" size="24" />
   </t-dropdown>
 </template>
